@@ -18,8 +18,8 @@
                 <button class="btn btn-lh-black" type="button" id="button-addon2">訂閱</button>
               </div>
               <ul class="footer-icon list-unstyled d-flex justify-content-center mb-0">
-                <li class="mx-2"><a href="#"><i class="fa-brands fa-square-facebook icon-size"></i></a></li>
-                <li class="mx-2"><a href="#"><i class="bi bi-instagram icon-size"></i></a></li>
+                <li class="mx-2 d-flex align-items-center"><a href="#"><i class="fa-brands fa-square-facebook icon-size"></i></a></li>
+                <li class="mx-2"><a href="#"><i class="bi bi-instagram icon-size-2"></i></a></li>
               </ul>
             </div>
         </div>
@@ -39,16 +39,22 @@
 </template>
 
 <style lang="scss" scoped>
+.fa-brands {
+  line-height: 1.1;
+}
 .icon-size{
   font-size: 36px;
 }
+.icon-size-2{
+  font-size: 32px;
+}
 .form-control {
   border-radius: 16px;
-  font-size: 18px;
+  font-size: 13px;
 }
 @media(min-width: 768px){
   .form-control {
-  font-size: 13px;
+  font-size: 18px;
 }
 }
 .btn-lh-black[data-v-f048872f] {
