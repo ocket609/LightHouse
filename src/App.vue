@@ -26,6 +26,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <button type="button" class="btn btn-dark">Dark</button>
 
       <button type="button" class="btn btn-link">Link</button>
+      <p class="fs-7">123</p>
     </div>
   </header> -->
 

@@ -530,6 +530,8 @@ $utilities: map-merge(
     // scss-docs-start utils-text
     'font-family':
       (
+        responsive: true,
+        rfs: true,
         property: font-family,
         class: font,
         values: (
