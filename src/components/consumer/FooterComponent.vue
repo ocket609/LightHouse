@@ -4,7 +4,7 @@
         <div class="d-flex justify-content-center">
             <div class="footer-content">
                 <div class="mb-5">
-                    <p class="mb-4 footer-input-title">訂閱LightHouse電子報</p>
+                    <p class="mb-6 footer-input-title">訂閱LightHouse電子報</p>
                     <p class="mb-3 footer-input-content">瞭解更多最新燈塔資訊!</p>
                 </div>
               <div class="input-group mb-5 px-3 px-lg-0">
