@@ -1,3 +1,14 @@
+<script setup>
+import { ref } from 'vue';
+const tabs = ref([
+    { id: 'pills-home', label: '北部區域', imageSrc: './src/assets/lighthouse_img/paulius-dragunas-Nhs0sLAn1Is-unsplash.jpg' },
+    { id: 'pills-profile', label: '南部區域' },
+    { id: 'pills-contact', label: '東部區域' },
+    { id: 'pills-disabled', label: '西部區域' }
+]);
+
+
+</script>
 <template>
     <div class="bg-black text-white">
         <div class="container">
@@ -11,34 +22,23 @@
                     </div>
                 </div>
             </div>
+
             <ul class="nav nav-underline mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
-                        type="button" role="tab" aria-controls="pills-home" aria-selected="true">北部區域</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
-                        type="button" role="tab" aria-controls="pills-profile" aria-selected="false">南部區域</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
-                        type="button" role="tab" aria-controls="pills-contact" aria-selected="false">東部區域</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#pills-disabled"
-                        type="button" role="tab" aria-controls="pills-disabled" aria-selected="false"
-                        >西部區域</button>
+                <li v-for="(tab, index) in tabs" :key="index" class="nav-item" role="presentation">
+                    <button class="nav-link" :class="{ active: index === 0 }" :id="tab.id + '-tab'"
+                        data-bs-toggle="pill" :data-bs-target="'#' + tab.id" type="button" role="tab"
+                        :aria-controls="tab.id" :aria-selected="index === 0">
+                        {{ tab.label }}
+                    </button>
                 </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
-                    tabindex="0"><img src="/src/assets/lighthouse_img/paulius-dragunas-Nhs0sLAn1Is-unsplash.jpg" alt=""></div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
-                    tabindex="0">...</div>
-                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
-                    tabindex="0">...</div>
-                <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab"
-                    tabindex="0">...</div>
+                <div v-for="(tab, index) in tabs" :key="index" class="tab-pane fade"
+                    :class="{ 'show active': index === 0 }" :id="tab.id" role="tabpanel"
+                    :aria-labelledby="tab.id + '-tab'" tabindex="0">
+                    <img v-if="tab.imageSrc" :src="tab.imageSrc" alt="">
+                    <div v-else>...</div>
+                </div>
             </div>
         </div>
     </div>
@@ -49,16 +49,20 @@
     display: flex;
     justify-content: center;
 }
+
 .nav-underline .nav-link {
     width: 100%;
 }
+
 .location-title {
     width: 275px;
     text-align: center;
 }
+
 .tab-content {
     padding-bottom: 160px;
 }
+
 .nav-underline .nav-link.active {
     color: var(--bs-white);
 }
