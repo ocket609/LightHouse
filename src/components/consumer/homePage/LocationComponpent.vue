@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from 'vue';
+import LocationSwiper from '@/components/consumer/utils/LocationSwiper.vue'
+
 const tabs = ref([
     { id: 'pills-home', label: '北部區域', imageSrc: './src/assets/lighthouse_img/paulius-dragunas-Nhs0sLAn1Is-unsplash.jpg' },
     { id: 'pills-profile', label: '南部區域' },
@@ -10,10 +12,10 @@ const tabs = ref([
 
 </script>
 <template>
-    <div class="bg-black text-white">
+    <div class="bg-black text-white pt-16" style="padding-bottom: 160px;">
         <div class="container">
-            <div class="fs-1 d-flex justify-content-center mt-16">LIGHTHOUSE</div>
-            <div class="d-flex justify-content-center">
+            <div class="fs-1 d-flex justify-content-center">LIGHTHOUSE</div>
+            <div class="d-flex justify-content-center" style="margin-top: 160px;">
                 <div class="location-title mb-16">
                     <h3 class="mb-6">燈塔分佈</h3>
                     <p>LIGHT HOUSE LOCATION</p>
@@ -23,7 +25,7 @@ const tabs = ref([
                 </div>
             </div>
 
-            <ul class="nav nav-underline mb-3" id="pills-tab" role="tablist">
+            <ul class="nav nav-underline mb-16" id="pills-tab" role="tablist">
                 <li v-for="(tab, index) in tabs" :key="index" class="nav-item" role="presentation">
                     <button class="nav-link" :class="{ active: index === 0 }" :id="tab.id + '-tab'"
                         data-bs-toggle="pill" :data-bs-target="'#' + tab.id" type="button" role="tab"
@@ -36,8 +38,8 @@ const tabs = ref([
                 <div v-for="(tab, index) in tabs" :key="index" class="tab-pane fade"
                     :class="{ 'show active': index === 0 }" :id="tab.id" role="tabpanel"
                     :aria-labelledby="tab.id + '-tab'" tabindex="0">
-                    <img v-if="tab.imageSrc" :src="tab.imageSrc" alt="">
-                    <div v-else>...</div>
+                    <LocationSwiper v-if="tab.label === '北部區域'" :region="tab.label" />
+                    <LocationSwiper v-if="tab.label === '南部區域'" :region="tab.label" />
                 </div>
             </div>
         </div>
@@ -50,6 +52,10 @@ const tabs = ref([
     justify-content: center;
 }
 
+.nav-link {
+    color: var(--bs-white);
+}
+
 .nav-underline .nav-link {
     width: 100%;
 }
@@ -59,11 +65,13 @@ const tabs = ref([
     text-align: center;
 }
 
-.tab-content {
-    padding-bottom: 160px;
+.nav-underline .nav-link.active {
+    color: var(--bs-lh-Tertiary-100);
 }
 
-.nav-underline .nav-link.active {
-    color: var(--bs-white);
+.nav-underline .nav-link:hover,
+.nav-underline .nav-link:focus {
+    color: var(--bs-lh-Tertiary-100);
+    border-bottom-color: var(--bs-lh-Tertiary-100)
 }
 </style>

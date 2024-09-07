@@ -1,5 +1,7 @@
 <template>
-    首頁
+    <LocationComponent/>
+    ...
 </template>
 <script setup>
+import LocationComponent from '@/components/consumer/homePage/LocationComponpent.vue'
 </script>
