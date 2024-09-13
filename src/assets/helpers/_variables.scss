@@ -406,14 +406,22 @@ $spacers: (
   // 24
   7: $spacer * 1.75,
   // 28
-  8: $spacer * 2, //32
-  9: $spacer * 2.25, // 36
-  10: $spacer * 2.5, //40
-  11: $spacer * 2.75, //44
-  12: $spacer * 3, //48
-  13: $spacer * 3.5, // 56
-  14: $spacer * 4, // 64
-  15: $spacer * 4.5, // 72
+  8: $spacer * 2,
+  //32
+  9: $spacer * 2.25,
+  // 36
+  10: $spacer * 2.5,
+  //40
+  11: $spacer * 2.75,
+  //44
+  12: $spacer * 3,
+  //48
+  13: $spacer * 3.5,
+  // 56
+  14: $spacer * 4,
+  // 64
+  15: $spacer * 4.5,
+  // 72
   16: $spacer * 5 // 80
 ) !default;
 // scss-docs-end spacer-variables-maps

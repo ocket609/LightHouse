@@ -6,9 +6,13 @@
 }
 a {
   text-decoration: none;
+  display: inline-block;
 }
 img {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
+}
+li {
+  list-style: none;
 }
