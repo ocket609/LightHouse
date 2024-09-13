@@ -4,6 +4,9 @@ import FooterComponent from '@/components/consumer/FooterComponent.vue'
 </script>
 <template>
   <HeaderComponent></HeaderComponent>
+  <main>
+        <RouterView/>
+    </main>
   <FooterComponent></FooterComponent>
   </template>
 
