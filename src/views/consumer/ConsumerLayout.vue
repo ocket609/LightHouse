@@ -1,6 +1,6 @@
 <template>
   <HeaderComponent></HeaderComponent>
-  頁首
+  <RouterView />
 </template>
 <script setup>
 import HeaderComponent from '@/components/consumer/HeaderComponent.vue'
