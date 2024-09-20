@@ -125,7 +125,6 @@
     <RouterLink to="/about">About</RouterLink> -->
     <!-- <div class="header-sideR"></div> -->
   </header>
-  Header
 </template>
 <script setup>
 import { RouterLink } from 'vue-router'
