@@ -24,15 +24,16 @@
             </div>
         </div>
       <ul
-        class="footer-end list-unstyled d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center mx-2 mx-xxl-0 mb-0"
+        class="footer-end list-unstyled d-flex flex-column flex-xl-row justify-content-center justify-content-xl-between align-items-center mx-2 mx-xxl-0 mb-0"
       >
-        <li class="mt-3 mt-lg-0 mb-6 mb-lg-0">
+        <li class="mt-3 mt-lg-0 mb-6 mb-xl-0">
           <a href="/">
             <img src="/src/assets/lighthouse_img/Lighthouse Logo.svg" alt="Lighthouse" />
           </a>
         </li>
-        <li class="mb-6 mb-lg-0">@2023 資料、圖片、文章來源皆來自網路，僅用來做為學習用途。</li>
-        <li class="mb-3 mb-lg-0"><a href="/">後台管理</a></li>
+        <li class="mb-6 mb-xl-0">@2023 資料、圖片、文章來源皆來自網路，僅用來做為學習用途。</li>
+        <li><a href="https://www.taiwan.net.tw/m1.aspx?sNo=0042509" target="_blank">來源：臺灣觀光資訊網</a></li>
+        <li class="mb-3 mb-xl-0"><a href="/">後台管理</a></li>
       </ul>
     </div>
   </div>
@@ -119,7 +120,7 @@
   color: var(--bs-primary);
 }
 .footer-end{
-  padding: 0 88px;
+  padding: 0 12px;
 }
 @media(min-width:768px){
   .footer-end {
