@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+// import HomeView from '../views/HomeView.vue'
 import ConsumerLayout from '../views/consumer/ConsumerLayout.vue'
 import ConsumerHome from '../views/consumer/HomePage.vue'
 
