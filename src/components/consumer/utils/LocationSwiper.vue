@@ -25,23 +25,25 @@ const lighthouses = ref([
   {
     area:"北部區域",
       areaData:[{
-
-          title: '新北市富貴角燈塔',
+      title: '新北市富貴角燈塔',
       subtitle: 'New Taipei City Fuguijiao Lighthouse',
       imageSrc: './public/pic-north-lighthouse-3.jpg',
-      alt: '新北市富貴角燈塔'
+      alt: '新北市富貴角燈塔',
+      link:'#'
     },
     {
       title: '桃園市白沙岬燈陶塔',
       subtitle: 'Taoyuan City Baishajia Lighthouse',
       imageSrc: './public/pic-north-lighthouse-4.jpg',
-      alt: '桃園市白沙岬燈陶塔'
+      alt: '桃園市白沙岬燈陶塔',
+      link:'#'
     },
     {
       title: '新北市三貂角燈塔',
       subtitle: 'Sandiao Cape Lighthouse',
       imageSrc: './public/pic-north-lighthouse-2.jpg',
-      alt: '新北市三貂角燈塔'
+      alt: '新北市三貂角燈塔',
+      link:'#'
     }]
   },
   {
@@ -50,19 +52,22 @@ const lighthouses = ref([
       title: '台南市國聖港燈塔',
       subtitle: 'Guosheng Lighthouse',
       imageSrc: './public/pic-sorth-lighthouse-1.jpg',
-      alt: '台南市國聖港燈塔'
+      alt: '台南市國聖港燈塔',
+      link:'#'
     },
     {
       title: '高雄燈塔（旗后燈塔）',
       subtitle: 'Kaohsiung Lighthouse',
       imageSrc: './public/pic-sorth-lighthouse-2.jpg',
-      alt: '高雄燈塔（旗后燈塔）'
+      alt: '高雄燈塔（旗后燈塔）',
+      link:'#'
     },
     {
       title: '屏東鵝鑾鼻燈塔',
       subtitle: 'Eluanbi Cape Lighthouse',
       imageSrc: './public/pic-sorth-lighthouse-3.jpg',
-      alt: '屏東鵝鑾鼻燈塔'
+      alt: '屏東鵝鑾鼻燈塔',
+      link:'#'
     }]
   },
   {
@@ -71,7 +76,8 @@ const lighthouses = ref([
       title: '台東縣綠島燈塔',
       subtitle: 'Green Island Lighthouse',
       imageSrc: './public/pic-east-lighthouse-1.jpg',
-      alt: '台東縣綠島燈塔'
+      alt: '台東縣綠島燈塔',
+      link:'#'
       },
       ]
   },
@@ -81,7 +87,8 @@ const lighthouses = ref([
       title: '彰化縣芳苑燈塔',
       subtitle: 'Fangyuan Lighthouse',
       imageSrc: './public/pic-wast-lighthouse-1.jpg',
-      alt: '彰化縣芳苑燈塔'
+      alt: '彰化縣芳苑燈塔',
+      link:'#'
       },
       ]
   }
@@ -97,21 +104,29 @@ const filteredLighthouses = computed(() => {
     <swiper-slide v-for="(lighthouse, index) in filteredLighthouses[0]?.areaData" :key="index">
       <div class="card bg-transparent" style="overflow: hidden;">
         <div class="card-body p-0">
-          <div class="card-title ps-6 pb-12 bottom-0 text-white mb-0" style="position: absolute; z-index: 999;">
-            <h4 class="pb-5">{{ lighthouse.title }}</h4>
-            <p class="mb-0">{{ lighthouse.subtitle }}</p>
+          <div class="card-title ps-6 pb-12 bottom-0 text-white mb-0 w-100" style="position: absolute; z-index: 999;">
+            <h4 class="pb-5 mb-0 fs-md-4 fs-6">{{ lighthouse.title }}</h4>
+            <p class="mb-2 mb-md-0 fs-9 fs-md-6">{{ lighthouse.subtitle }}</p>
+            <a :href="lighthouse.link" class="btn btn-primary position-absolute end-0 text-white bottom-0 w-100 rounded-0 d-md-none fs-9 fs-md-6 p-3" style="z-index: 999;">MORE</a>
           </div>
           <img :src="lighthouse.imageSrc" class="card-img-top" :alt="lighthouse.alt">
-          <a href="#" class="btn btn-dark position-absolute end-0 text-white bottom-0 px-6 py-14 rounded-0">MORE</a>
+          <a href="#" class="btn btn-dark position-absolute end-0 text-white bottom-0 px-6 py-14 rounded-0 d-none d-md-block fs-9 fs-md-6" style="z-index: 999;">MORE</a>
         </div>
       </div>
     </swiper-slide>
     </swiper>
 </template>
 <style lang="scss" scoped>
-.btn:hover{
+.btn-dark, .btn-primary {
+  transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+.btn-dark:hover{
     background-color: var(--bs-primary);
     border-color: var(--bs-primary);
+}
+.btn-primary:hover{
+  background-color: var(--bs-warning);
+  border-color: var(--bs-warning);
 }
 .card img {
   transform: scale(1, 1);
