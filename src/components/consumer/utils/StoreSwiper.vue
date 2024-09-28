@@ -86,12 +86,12 @@ const storeData = ref([
           </div>
         </div>
       </swiper-slide>
-      <div class="swiper-button-next">
+      <!-- <div class="swiper-button-next">
           <i class="bi bi-chevron-right"></i>
       </div>
       <div class="swiper-button-prev">
           <i class="bi bi-chevron-left"></i>
-      </div>
+      </div> -->
     </swiper>
   </div>
 </template>
@@ -131,32 +131,32 @@ const storeData = ref([
   
   
 }
-.swiper-box .swiper-button-next {
-right: -70px !important;  // 控制箭头的右侧位置
-top: 55%;                // 控制箭头的垂直位置
-transform: translateY(-35%);  // 保证箭头垂直居中
-width: 40px;             // 可以根据需求调整宽度
-height: 40px;            // 可以根据需求调整高度
-background: var(--bs-lh-Tertiary-100);             // 调整箭头颜色
-border-radius: 32px;
-color: var(--bs-white);
-z-index: 999;             // 确保箭头位于滑块上方
-}
-.swiper-button-next:after {
-    content: '';
-}
-.swiper-button-prev:after {
-    content: '';
-}
-.swiper-box .swiper-button-prev {
-left: -70px !important;  // 控制箭头的右侧位置
-top: 55%;                // 控制箭头的垂直位置
-transform: translateY(-35%);  // 保证箭头垂直居中
-width: 40px;             // 可以根据需求调整宽度
-height: 40px;            // 可以根据需求调整高度
-background: var(--bs-lh-Tertiary-100);             // 调整箭头颜色
-border-radius: 32px;
-color: var(--bs-white);
-z-index: 999;             // 确保箭头位于滑块上方
-}
+//  .swiper-button-next {
+// right: -40px !important;  // 控制箭头的右侧位置
+// top: 55%;                // 控制箭头的垂直位置
+// transform: translateY(-35%);  // 保证箭头垂直居中
+// width: 40px;             // 可以根据需求调整宽度
+// height: 40px;            // 可以根据需求调整高度
+// background: var(--bs-lh-Tertiary-100);             // 调整箭头颜色
+// border-radius: 32px;
+// color: var(--bs-white);
+// z-index: 999;             // 确保箭头位于滑块上方
+// }
+// .swiper-button-next:after {
+//     content: '';
+// }
+// .swiper-button-prev:after {
+//     content: '';
+// }
+// .swiper-button-prev {
+// left: -40px !important;  // 控制箭头的右侧位置
+// top: 55%;                // 控制箭头的垂直位置
+// transform: translateY(-35%);  // 保证箭头垂直居中
+// width: 40px;             // 可以根据需求调整宽度
+// height: 40px;            // 可以根据需求调整高度
+// background: var(--bs-lh-Tertiary-100);             // 调整箭头颜色
+// border-radius: 32px;
+// color: var(--bs-white);
+// z-index: 999;             // 确保箭头位于滑块上方
+// }
 </style>
