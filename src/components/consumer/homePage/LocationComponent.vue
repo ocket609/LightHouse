@@ -9,7 +9,6 @@ const tabs = ref([
     { id: 'pills-disabled', label: '西部區域' }
 ]);
 
-
 </script>
 <template>
     <div class="bg-black text-white pt-16" style="padding-bottom: 160px;">

@@ -25,8 +25,7 @@ const lighthouses = ref([
   {
     area:"北部區域",
       areaData:[{
-
-          title: '新北市富貴角燈塔',
+      title: '新北市富貴角燈塔',
       subtitle: 'New Taipei City Fuguijiao Lighthouse',
       imageSrc: './public/pic-north-lighthouse-3.jpg',
       alt: '新北市富貴角燈塔'
