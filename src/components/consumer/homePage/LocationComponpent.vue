@@ -40,6 +40,8 @@ const tabs = ref([
                     :aria-labelledby="tab.id + '-tab'" tabindex="0">
                     <LocationSwiper v-if="tab.label === '北部區域'" :region="tab.label" />
                     <LocationSwiper v-if="tab.label === '南部區域'" :region="tab.label" />
+                    <LocationSwiper v-if="tab.label === '東部區域'" :region="tab.label" />
+                    <LocationSwiper v-if="tab.label === '西部區域'" :region="tab.label" />
                 </div>
             </div>
         </div>
