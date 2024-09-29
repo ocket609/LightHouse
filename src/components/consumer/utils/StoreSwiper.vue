@@ -40,22 +40,12 @@ const storeData = ref([
 </script>
 <template>
   <div class="swiper-box">
-    <swiper
-      :navigation="true"
-      :modules="modules"
-      :spaceBetween="30"
-      :breakpoints="breakpoints"
-      class="mySwiper"
-    >
+    <swiper :navigation="true" :modules="modules" :spaceBetween="24" :breakpoints="breakpoints" class="mySwiper">
       <swiper-slide v-for="(storeData, index) in storeData" :key="index">
         <div class="card mb-0 border-0">
           <div class="row g-0">
             <div class="col-md-6" style="overflow: hidden">
-              <img
-                :src="storeData.imageSrc"
-                class="img-fluid rounded-start h-100"
-                :alt="storeData.alt"
-              />
+              <img :src="storeData.imageSrc" class="img-fluid rounded-start h-100" :alt="storeData.alt" />
             </div>
             <div class="col-md-6">
               <div class="card-body px-6 py-8 d-flex justify-content-between flex-column h-100">
@@ -74,10 +64,7 @@ const storeData = ref([
                     <p class="mb-0 fs-4">$199</p>
                   </div>
                   <div class="addBtnCart">
-                    <i
-                      class="bi bi-cart4"
-                      style="font-size: 24px; color: #fff; padding-right: 10px"
-                    ></i>
+                    <i class="bi bi-cart4" style="font-size: 24px; color: #fff; padding-right: 10px"></i>
                     <span style="color: #f5f5f5">加入購物車</span>
                   </div>
                 </div>
@@ -86,12 +73,6 @@ const storeData = ref([
           </div>
         </div>
       </swiper-slide>
-      <!-- <div class="swiper-button-next">
-          <i class="bi bi-chevron-right"></i>
-      </div>
-      <div class="swiper-button-prev">
-          <i class="bi bi-chevron-left"></i>
-      </div> -->
     </swiper>
   </div>
 </template>
@@ -104,59 +85,97 @@ const storeData = ref([
   border-radius: 8px;
   padding: 16px;
 }
-.swiper-box .card{
-    border-radius: 16px;
-    overflow: hidden;
+
+.swiper-box .card {
+  border-radius: 16px;
+  overflow: hidden;
 }
+
 .swiper-box .card img {
   transform: scale(1, 1);
   transition: all 2s ease-out;
 
 }
+
 .swiper-box .card img:hover {
   transform: scale(1.2, 1.2);
   border-bottom-left-radius: 64px !important;
   border-top-left-radius: 64px !important;
 }
+
 .swiper-box {
   position: relative;
-  
+
   .mySwiper {
     position: unset;
-    
+
     .swiper-wrapper {
       position: unset !important;
     }
   }
-  
-  
 }
-//  .swiper-button-next {
-// right: -40px !important;  // 控制箭头的右侧位置
-// top: 55%;                // 控制箭头的垂直位置
-// transform: translateY(-35%);  // 保证箭头垂直居中
-// width: 40px;             // 可以根据需求调整宽度
-// height: 40px;            // 可以根据需求调整高度
-// background: var(--bs-lh-Tertiary-100);             // 调整箭头颜色
-// border-radius: 32px;
-// color: var(--bs-white);
-// z-index: 999;             // 确保箭头位于滑块上方
-// }
-// .swiper-button-next:after {
-//     content: '';
-// }
-// .swiper-button-prev:after {
-//     content: '';
-// }
-// .swiper-button-prev {
-// left: -40px !important;  // 控制箭头的右侧位置
-// top: 55%;                // 控制箭头的垂直位置
-// transform: translateY(-35%);  // 保证箭头垂直居中
-// width: 40px;             // 可以根据需求调整宽度
-// height: 40px;            // 可以根据需求调整高度
-// background: var(--bs-lh-Tertiary-100);             // 调整箭头颜色
-// border-radius: 32px;
-// color: var(--bs-white);
-// z-index: 999;             // 确保箭头位于滑块上方
-// }
+
+@media(min-width:576px) {
+  .swiper-box {
+    padding: 20px;
+  }
+}
+
+@media(min-width: 992px) {
+  .swiper-box {
+    padding: 30px;
+  }
+}
+
+@media(min-width: 1400px) {
+  .swiper-box {
+    padding: 0;
+  }
+}
+
+
+.swiper-button-prev,
+.swiper-button-next {
+  display: none;
+}
+
+@media(min-width:576px) {
+  .swiper-button-next {
+    right: -25px !important; // 控制箭头的右侧位置
+    top: 55%; // 控制箭头的垂直位置
+    transform: translateY(-35%); // 保证箭头垂直居中
+    width: 40px; // 可以根据需求调整宽度
+    height: 40px; // 可以根据需求调整高度
+    display: block;
+  }
+
+  .swiper-button-prev {
+    left: -25px !important; // 控制箭头的右侧位置
+    top: 55%; // 控制箭头的垂直位置
+    transform: translateY(-35%); // 保证箭头垂直居中
+    width: 40px; // 可以根据需求调整宽度
+    height: 40px; // 可以根据需求调整高度
+    display: block;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    color: var(--bs-white);
+    background: var(--bs-lh-Tertiary-100);
+    font-size: 20px;
+    padding: 9px 14px;
+    border-radius: 32px;
+  }
+}
+
+@media(min-width:1200px) {
+  .swiper-button-next {
+    right: -50px !important; // 控制箭头的右侧位置
+  }
+
+  .swiper-button-prev {
+    left: -50px !important; // 控制箭头的右侧位置
+  }
+
+}
 </style>
