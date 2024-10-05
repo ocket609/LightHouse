@@ -45,7 +45,8 @@ const storeData = ref([
         <div class="card mb-0 border-0">
           <div class="row g-0">
             <div class="col-md-6" style="overflow: hidden">
-              <img :src="storeData.imageSrc" class="img-fluid rounded-start h-100" :alt="storeData.alt" />
+              <span class="py-2 px-4 mb-0 hot-tag">熱銷商品</span>
+              <img :src="storeData.imageSrc" class="img-fluid h-100" :alt="storeData.alt" />
             </div>
             <div class="col-md-6">
               <div class="card-body px-6 py-8 d-flex justify-content-between flex-column h-100">
@@ -58,15 +59,25 @@ const storeData = ref([
                   <p class="fs-6 text-success mb-0">商品資訊</p>
                 </div>
 
-                <div class="card-end mb-0 d-flex justify-content-between align-items-center">
+                <div class="card-end mb-0 d-flex justify-content-between align-items-center d-lg-none d-xl-flex">
                   <div class="side-left">
                     <p class="mb-0 text-decoration-line-through text-success fs-6">$250</p>
                     <p class="mb-0 fs-4">$199</p>
                   </div>
-                  <div class="addBtnCart">
-                    <i class="bi bi-cart4" style="font-size: 24px; color: #fff; padding-right: 10px"></i>
+                  <a class="addBtnCart" href="#">
+                    <span class="material-symbols-outlined text-white" style="padding-right: 10px;"> shopping_cart </span>
                     <span style="color: #f5f5f5">加入購物車</span>
+                  </a>
+                </div>
+                <div class="card-end mb-0 d-none d-lg-block d-xl-none d-lg-spacer-none">
+                  <div class="side-left">
+                    <p class="mb-0 text-decoration-line-through text-success fs-6">$250</p>
+                    <p class="mb-0 fs-4">$199</p>
                   </div>
+                  <a class="addBtnCart" href="#">
+                    <span class="material-symbols-outlined text-white" style="padding-right: 10px;"> shopping_cart </span>
+                    <span style="color: #f5f5f5">加入購物車</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -85,7 +96,20 @@ const storeData = ref([
   border-radius: 8px;
   padding: 16px;
 }
-
+.addBtnCart:hover{
+  background: var(--bs-lh-Primary);
+}
+//Hidden only on lg 間距
+@media(min-width:992px) {
+  .card .d-lg-spacer-none {
+  padding-top: 40px;
+}
+}
+@media(min-width:1200px) {
+  .card .d-lg-spacer-none {
+ padding-top: 0;
+}
+}
 .swiper-box .card {
   border-radius: 16px;
   overflow: hidden;
@@ -94,7 +118,7 @@ const storeData = ref([
 .swiper-box .card img {
   transform: scale(1, 1);
   transition: all 2s ease-out;
-
+  position: relative;
 }
 
 .swiper-box .card img:hover {
@@ -102,7 +126,15 @@ const storeData = ref([
   border-bottom-left-radius: 64px !important;
   border-top-left-radius: 64px !important;
 }
-
+.hot-tag{
+  position: absolute;
+  z-index: 999;
+  margin-left: 16px;
+  margin-top: 16px;
+  background: var(--bs-lh-Primary-200);
+  color: var(--bs-white);
+  border-radius: 4px;
+}
 .swiper-box {
   position: relative;
 
@@ -121,13 +153,13 @@ const storeData = ref([
   }
 }
 
-@media(min-width: 992px) {
+@media(min-width: 768px) {
   .swiper-box {
     padding: 30px;
   }
 }
 
-@media(min-width: 1400px) {
+@media(min-width: 1200px) {
   .swiper-box {
     padding: 0;
   }
@@ -163,7 +195,7 @@ const storeData = ref([
     color: var(--bs-white);
     background: var(--bs-lh-Tertiary-100);
     font-size: 20px;
-    padding: 9px 14px;
+    padding: 9px 14px 9px 13px;
     border-radius: 32px;
   }
 }
