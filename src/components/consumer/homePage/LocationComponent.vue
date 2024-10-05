@@ -16,8 +16,15 @@ const tabs = ref([
             <div class="fs-1 d-flex justify-content-center">LIGHTHOUSE</div>
             <div class="d-flex justify-content-center" style="margin-top: 160px;">
                 <div class="location-title mb-16">
-                    <h3 class="mb-6" style="letter-spacing:16px;">燈塔分佈</h3>
-                    <p style="letter-spacing:3.8px;">LIGHTHOUSE LOCATION</p>
+                    <h3 class="mb-6">
+                        <span style="letter-spacing:16px;">燈塔分</span>
+                        <span>佈</span>
+                    </h3>
+
+                    <p>
+                        <span style="letter-spacing:3.8px;">LIGHTHOUSE LOCATIO</span>
+                        <span>N</span>
+                    </p>
                     <div class="d-flex justify-content-center">
                         <div class="border border-2 border-primary" style="width: 120px;"></div>
                     </div>
@@ -50,8 +57,8 @@ const tabs = ref([
 .location-title {
     width: 275px;
     text-align: center;
-    letter-spacing:16px;
 }
+
 .nav-item {
     width: calc(25% - 12px);
     display: flex;
