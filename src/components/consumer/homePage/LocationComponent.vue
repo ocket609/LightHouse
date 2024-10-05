@@ -16,8 +16,8 @@ const tabs = ref([
             <div class="fs-1 d-flex justify-content-center">LIGHTHOUSE</div>
             <div class="d-flex justify-content-center" style="margin-top: 160px;">
                 <div class="location-title mb-16">
-                    <h3 class="mb-6" style="letter-spacing:16px;">週邊小物</h3>
-                    <p style="letter-spacing:4px;">LIGHTHOUSE STORE</p>
+                    <h3 class="mb-6" style="letter-spacing:16px;">燈塔分佈</h3>
+                    <p style="letter-spacing:4px;">LIGHTHOUSE LOCATION</p>
                     <div class="d-flex justify-content-center">
                         <div class="border border-2 border-primary" style="width: 120px;"></div>
                     </div>
