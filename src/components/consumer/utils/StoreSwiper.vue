@@ -53,7 +53,9 @@ const storeData = ref([
                 <div class="card-header bg-transparent border-0 p-0 m-0">
                   <div class="d-flex justify-content-between mb-4 align-items-center">
                     <h4 class="card-title mb-0">{{ storeData.title }}</h4>
-                    <i class="bi bi-heart-fill text-success" style="font-size: 28px"></i>
+                    <button type="button" class="border-0 bg-transparent">
+                      <i class="bi bi-heart-fill heart-tag" style="font-size: 28px"></i>
+                    </button>
                   </div>
 
                   <p class="fs-6 text-success mb-0">商品資訊</p>
@@ -98,6 +100,12 @@ const storeData = ref([
 }
 .addBtnCart:hover{
   background: var(--bs-lh-Primary);
+}
+.heart-tag {
+  color: var(--bs-lh-Nuetral-200);
+}
+.heart-tag:hover{
+  color: var(--bs-warning);
 }
 //Hidden only on lg 間距
 @media(min-width:992px) {
