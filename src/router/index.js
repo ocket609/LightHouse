@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 // import HomeView from '../views/HomeView.vue'
 import ConsumerLayout from '../views/consumer/ConsumerLayout.vue'
 import ConsumerHome from '../views/consumer/HomePage.vue'
+import ConsumerLocation from '@/views/consumer/ConsumerLocation.vue'
 
 
 const router = createRouter({
@@ -17,6 +18,12 @@ const router = createRouter({
           name: 'consumerHome',
           component: ConsumerHome,
           meta: { title: '燈塔網站' },
+        },
+        {
+          path: 'location',
+          name: 'consumerLocation',
+          component: ConsumerLocation,
+          meta: { title: '燈塔列表' },
         },
       ]
     },
