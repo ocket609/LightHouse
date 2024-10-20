@@ -1,0 +1,184 @@
+* {
+  outline: 1px solid yellow;
+}
+.story-container {
+  width: 1296px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.border-line {
+  width: 120px;
+  height: 4px;
+  background-color: $primary;
+}
+
+//
+.homeStory {
+  width: 100%;
+  height: 100%;
+  background-image: url(../../../public/lighthouse_img/alexander-andrews-vGCErDhrc3E-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 160px 0;
+
+  &-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 60px;
+  }
+  &-content-card {
+    width: 351px;
+    height: 320px;
+    border-radius: 240px 240px 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    &-text {
+      padding: 125.5px 63.5px 0;
+    }
+    .homeStory-content-card-hover::after {
+      content: '';
+      position: absolute;
+      bottom: 324px;
+      left: 154.87px;
+      width: 320px;
+      height: 500px;
+      background: linear-gradient(to top, rgba(255, 92, 0, 0.4), rgba(255, 92, 0, 0));
+      clip-path: polygon(50% 100%, 100% 0, 0 0);
+      transform: rotate(-50deg); /* 設置初始角度 */
+      animation-name: light-hover;
+      /*animation-duration: 1s;
+      animation-timing-function: steps(10, start);
+      animation-fill-mode: forwards;*/
+      transition: transform 1s steps(10, start); /* 增加 transition 確保變換效果 */
+    }
+    @keyframes light-hover {
+      0% {
+        transform: rotate(-50deg);
+      }
+      25% {
+        transform: rotate(-25deg);
+      }
+      50% {
+        transform: rotate(0deg);
+      }
+      75% {
+        transform: rotate(25deg);
+      }
+      100% {
+        transform: rotate(50deg);
+      }
+    }
+  }
+  &-content-card:nth-child(1) {
+    background-image: url(../../../public/lighthouse_img/mael-balland-BtTY5Y5dAa0-unsplash.jpg);
+    .homeStory-content-card-hover {
+      /* transition 不支援 display 屬性進行過渡，因此使用 display-none/block 會造成 transition 失效；改使用 opacity: 0;+visibility: hidden; / opacity: 1；+visibility: visible; */
+      opacity: 0;
+      visibility: hidden;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 240px 240px 0 0;
+      transition-duration: 1s;
+      &-text {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-bottom: 12px solid $primary;
+      }
+    }
+    &:hover .homeStory-content-card-hover {
+      opacity: 1;
+      visibility: visible;
+    }
+    &:hover .homeStory-content-card-hover::after {
+      transform: rotate(50deg); /* 目標角度 */
+    }
+  }
+  &-content-card:nth-child(2) {
+    background-image: url(../../../public/lighthouse_img/birk-enwald-q-ToUbpoK14-unsplash.jpg);
+    .homeStory-content-card-hover {
+      opacity: 0;
+      visibility: hidden;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 240px 240px 0 0;
+      transition-duration: 1s;
+      &-text {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-bottom: 12px solid $primary;
+      }
+    }
+    &:hover .homeStory-content-card-hover {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &-content-card:nth-child(3) {
+    background-image: url(../../../public/lighthouse_img/michael-krahn-ikgFjrzGsAE-unsplash.jpg);
+    .homeStory-content-card-hover {
+      opacity: 0;
+      visibility: hidden;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 240px 240px 0 0;
+      transition-duration: 1s;
+      &-text {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-bottom: 12px solid $primary;
+      }
+    }
+    &:hover .homeStory-content-card-hover {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .homeStory {
+  }
+}
+@media (min-width: 768px) {
+  .homeStory {
+    &-content-card {
+      width: 416px;
+      height: 564px;
+      &-text {
+        padding: 215px 96px 0;
+      }
+    }
+  }
+}
+@media (min-width: 992px) {
+  .homeStory {
+  }
+}
+@media (min-width: 1260px) {
+  .homeStory {
+    &-content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}

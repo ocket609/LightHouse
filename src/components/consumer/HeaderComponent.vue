@@ -73,7 +73,7 @@
         <!---->
       </div>
       <a href="#" class="header-logo">
-        <img class="img-logo" src="/src/assets/lighthouse_img/Lighthouse Logo.svg" alt="LOGO" />
+        <img class="img-logo" src="/public/lighthouse_img/Lighthouse Logo.svg" alt="LOGO" />
       </a>
     </div>
     <div class="header-nav d-flex justify-content-between align-items-center px-sm-6">
