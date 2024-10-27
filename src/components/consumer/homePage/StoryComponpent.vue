@@ -1,5 +1,5 @@
 <template>
-  <div class="homeStory">
+  <div class="homeStory bg-dark">
     <div class="homeStory-main story-container text-white d-flex flex-column align-items-center">
       <div class="homeStory-title fw-bold d-flex flex-column align-items-center py-1 mb-16">
         <p class="fs-7 fs-sm-3 mb-6">心靈雞湯</p>
@@ -57,4 +57,4 @@
     </div>
   </div>
 </template>
-<script setup></script>
+

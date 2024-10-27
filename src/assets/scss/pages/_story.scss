@@ -40,22 +40,22 @@
     &-text {
       padding: 125.5px 63.5px 0;
     }
-    .homeStory-content-card-hover::after {
-      content: '';
-      position: absolute;
-      bottom: 324px;
-      left: 154.87px;
-      width: 320px;
-      height: 500px;
-      background: linear-gradient(to top, rgba(255, 92, 0, 0.4), rgba(255, 92, 0, 0));
-      clip-path: polygon(50% 100%, 100% 0, 0 0);
-      transform: rotate(-50deg); /* 設置初始角度 */
-      animation-name: light-hover;
-      /*animation-duration: 1s;
-      animation-timing-function: steps(10, start);
-      animation-fill-mode: forwards;*/
-      transition: transform 1s steps(10, start); /* 增加 transition 確保變換效果 */
-    }
+    // .homeStory-content-card-hover::after {
+    //   content: '';
+    //   position: absolute;
+    //   bottom: 324px;
+    //   left: 154.87px;
+    //   width: 320px;
+    //   height: 500px;
+    //   background: linear-gradient(to top, rgba(255, 92, 0, 0.4), rgba(255, 92, 0, 0));
+    //   clip-path: polygon(50% 100%, 100% 0, 0 0);
+    //   transform: rotate(-50deg); /* 設置初始角度 */
+    //   animation-name: light-hover;
+    //   /*animation-duration: 1s;
+    //   animation-timing-function: steps(10, start);
+    //   animation-fill-mode: forwards;*/
+    //   transition: transform 1s steps(10, start); /* 增加 transition 確保變換效果 */
+    // }
     @keyframes light-hover {
       0% {
         transform: rotate(-50deg);
@@ -155,10 +155,7 @@
   }
 }
 
-@media (min-width: 576px) {
-  .homeStory {
-  }
-}
+
 @media (min-width: 768px) {
   .homeStory {
     &-content-card {
@@ -170,10 +167,7 @@
     }
   }
 }
-@media (min-width: 992px) {
-  .homeStory {
-  }
-}
+
 @media (min-width: 1260px) {
   .homeStory {
     &-content {
@@ -182,3 +176,22 @@
     }
   }
 }
+.homeStory-content-card {
+  position: relative;
+  z-index: 2; /* 确保卡片内容高于光束 */
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 324px;
+    left: 154.87px;
+    width: 320px;
+    height: 500px;
+    background: linear-gradient(to top, rgba(255, 92, 0, 0.4), rgba(255, 92, 0, 0));
+    clip-path: polygon(50% 100%, 100% 0, 0 0);
+    transform: rotate(-50deg);
+    transition: transform 1s steps(10, start);
+    z-index: 1; /* 确保光束在图片背景下方 */
+  }
+}
+
