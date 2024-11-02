@@ -11,6 +11,12 @@
   height: 4px;
   background-color: $primary;
 }
+.letter-spacing-16 {
+  letter-spacing: 16px;
+}
+.letter-spacing-4 {
+  letter-spacing: 4px;
+}
 
 //
 .homeStory {
@@ -20,7 +26,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding: 160px 0;
+  padding: 80px 12px;
 
   &-content {
     width: 100%;
@@ -37,41 +43,10 @@
     background-size: cover;
     background-position: center;
     position: relative;
+    //overflow: visible;
+    z-index: 2;
     &-text {
       padding: 125.5px 63.5px 0;
-    }
-    .homeStory-content-card-hover::after {
-      content: '';
-      position: absolute;
-      bottom: 324px;
-      left: 154.87px;
-      width: 320px;
-      height: 500px;
-      background: linear-gradient(to top, rgba(255, 92, 0, 0.4), rgba(255, 92, 0, 0));
-      clip-path: polygon(50% 100%, 100% 0, 0 0);
-      transform: rotate(-50deg); /* 設置初始角度 */
-      animation-name: light-hover;
-      /*animation-duration: 1s;
-      animation-timing-function: steps(10, start);
-      animation-fill-mode: forwards;*/
-      transition: transform 1s steps(10, start); /* 增加 transition 確保變換效果 */
-    }
-    @keyframes light-hover {
-      0% {
-        transform: rotate(-50deg);
-      }
-      25% {
-        transform: rotate(-25deg);
-      }
-      50% {
-        transform: rotate(0deg);
-      }
-      75% {
-        transform: rotate(25deg);
-      }
-      100% {
-        transform: rotate(50deg);
-      }
     }
   }
   &-content-card:nth-child(1) {
@@ -88,21 +63,21 @@
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 240px 240px 0 0;
       transition-duration: 1s;
+      z-index: 3;
       &-text {
         width: 100%;
         height: 100%;
         position: absolute;
         border-bottom: 12px solid $primary;
+        z-index: 3;
       }
     }
     &:hover .homeStory-content-card-hover {
       opacity: 1;
       visibility: visible;
     }
-    &:hover .homeStory-content-card-hover::after {
-      transform: rotate(50deg); /* 目標角度 */
-    }
   }
+
   &-content-card:nth-child(2) {
     background-image: url(../../../public/lighthouse_img/birk-enwald-q-ToUbpoK14-unsplash.jpg);
     .homeStory-content-card-hover {
@@ -155,12 +130,9 @@
   }
 }
 
-@media (min-width: 576px) {
-  .homeStory {
-  }
-}
 @media (min-width: 768px) {
   .homeStory {
+    padding: 160px 12px;
     &-content-card {
       width: 416px;
       height: 564px;
@@ -168,17 +140,44 @@
         padding: 215px 96px 0;
       }
     }
+
+    .homeStory-light {
+      opacity: 0;
+      //visibility: hidden;
+      position: absolute;
+      bottom: 324px;
+      left: 154.87px;
+      // bottom: 0;
+      // left: 50%;
+      width: 320px;
+      height: 500px;
+      background: linear-gradient(to top, rgba(255, 92, 0, 0.4), rgba(255, 92, 0, 0));
+      clip-path: polygon(50% 100%, 100% 0, 0 0);
+      transform: rotate(-50deg);
+      transition: transform 1s steps(10, start);
+      z-index: -1;
+    }
+  }
+  .homeStory-content-card:hover .homeStory-light {
+    opacity: 1;
+    transform: rotate(30deg); /*目標角度 */
   }
 }
+
 @media (min-width: 992px) {
-  .homeStory {
+  .homeStory-content-card:hover .homeStory-light {
+    transform: rotate(40deg);
   }
 }
+
 @media (min-width: 1260px) {
   .homeStory {
     &-content {
       flex-direction: row;
       justify-content: space-between;
     }
+  }
+  .homeStory-content-card:hover .homeStory-light {
+    transform: rotate(50deg);
   }
 }
