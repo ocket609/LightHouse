@@ -1,6 +1,6 @@
 <template>
   <div class="bg-dark">
-    <div class="container d-flex justify-content-center py-5">
+    <div class="container d-flex justify-content-center py-5 mt-0">
 			<!-- 需動態判斷目前頁面及active、disabled -->
       <nav aria-label="...">
         <ul class="pagination mb-0">
