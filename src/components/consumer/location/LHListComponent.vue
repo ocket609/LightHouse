@@ -1,27 +1,27 @@
 <script setup>
-import { lighthouses } from '@/constants/lightHouseData.js'
+import { useLighthouseStore } from '@/stores/lightHouseList.js'
 
+const lighthouseStore = useLighthouseStore()
+lighthouseStore.getArticleData()
 </script>
 
 <template>
   <div class="bg-dark pt-5 pb-10">
     <div class="container py-10">
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-6">
-        <template v-for="region in lighthouses" :key="region.area">
-          <template v-for="item in region.areaData" :key="item.title">
+        <template v-for="region in lighthouseStore.lighthouses" :key="region.num">
             <div class="col">
               <div class="card h-100 border-0">
                 <div class="card-overlay">
-                  <img :src="item.imageSrc" class="card-img-top" :alt="item.alt">
+                  <img :src="region.image" class="card-img-top" :alt="region.title">
                   <div class="overlay text-center d-flex flex-column align-items-center justify-content-center">
-                    <h5 class="card-title fs-3">{{ item.title }}</h5>
-                    <p>{{ item.content }}</p>
+                    <h5 class="card-title fs-3">{{ region.title }}</h5>
+                    <p>{{ region.description.slice(0, 12) }}...</p>
                     <a href="#" class="fs-4 btn btn-outline-primary">查看更多</a>
                   </div>
                 </div>
               </div>
             </div>
-          </template>
         </template>
       </div>
     </div>
