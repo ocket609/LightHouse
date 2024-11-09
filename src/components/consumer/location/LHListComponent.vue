@@ -9,7 +9,7 @@ lighthouseStore.getArticleData()
   <div class="bg-dark pt-5 pb-10">
     <div class="container py-10">
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-6">
-        <template v-for="region in lighthouseStore.lighthouses" :key="region.num">
+        <template v-for="region in lighthouseStore.lighthousesMobile" :key="region.id">
             <div class="col">
               <div class="card h-100 border-0">
                 <div class="card-overlay">
