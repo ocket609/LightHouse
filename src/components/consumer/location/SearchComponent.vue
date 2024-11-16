@@ -36,11 +36,9 @@ import { searchList } from '@/constants/searchListData.js'
              <i class="bi bi-sort-down"></i>
            </button>
            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
-             <li><a class="dropdown-item active" href="#">Action</a></li>
-             <li><a class="dropdown-item" href="#">Another action</a></li>
-             <li><a class="dropdown-item" href="#">Something else here</a></li>
-             <li><hr class="dropdown-divider"></li>
-             <li><a class="dropdown-item" href="#">Separated link</a></li>
+             <li><a class="dropdown-item active" href="#">最新資訊</a></li>
+             <li><a class="dropdown-item" href="#">由北至南</a></li>
+             <li><a class="dropdown-item" href="#">由南至北</a></li>
            </ul>
          </div>
        </div>

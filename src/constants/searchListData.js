@@ -12,10 +12,11 @@ export const searchList =[
     {
       title: "所有特色",
       items: [
-        { id: '6', label: '特色A' },
-        { id: '7', label: '特色B' },
-        { id: '8', label: '特色C' },
-        { id: '9', label: '特色D' }
+        { id: '6', label: '希望與指引' },
+        { id: '7', label: '堅韌與信念' },
+        { id: '8', label: '純淨與自然' },
+        { id: '9', label: '溫暖與守護' },
+        { id: '10', label: '壯麗與壯觀' }
       ]
     }
   ];

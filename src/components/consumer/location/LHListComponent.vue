@@ -14,10 +14,10 @@ lighthouseStore.getArticleData()
               <div class="card h-100 border-0">
                 <div class="card-overlay">
                   <img :src="region.image" class="card-img-top" :alt="region.title">
-                  <div class="overlay text-center d-flex flex-column align-items-center justify-content-center">
+                  <div class="overlay text-center d-flex flex-column align-items-center justify-content-center p-5">
                     <h5 class="card-title fs-3">{{ region.title }}</h5>
                     <p>{{ region.description.slice(0, 12) }}...</p>
-                    <a href="#" class="fs-4 btn btn-outline-primary">查看更多</a>
+                    <button type="button" class="fs-4 btn btn-outline-primary">查看更多</button>
                   </div>
                 </div>
               </div>

@@ -1,5 +1,4 @@
 <template>
-  {{ lighthouseStore.lighthouses }}
   <div class="bg-dark pt-5 pb-10">
     <div class="container py-10">
       <div class="row" ref="masonryContainer">
@@ -17,11 +16,11 @@
                 @load="layoutMasonry"
               />
               <div
-                class="overlay text-center d-flex flex-column align-items-center justify-content-center"
+                class="overlay text-center d-flex flex-column align-items-center justify-content-center p-5"
               >
                 <h5 class="card-title fs-3">{{ region.title }}</h5>
-                <p>{{ region.description }}</p>
-                <a href="#" class="fs-4 btn btn-outline-primary">查看更多</a>
+                <p>{{ region.description.slice(0, 12) }}...</p>
+                <button type="button" class="fs-4 btn btn-outline-primary">查看更多</button>
               </div>
             </div>
           </div>

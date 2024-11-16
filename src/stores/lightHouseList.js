@@ -10,21 +10,38 @@ export const useLighthouseStore = defineStore('lighthouse', () => {
   // 定義 getArticleData 函數
   const getArticleData = async () => {
     try {
-      const data = await $get('articles');
-      if (data && data.articles) {
-        // 篩選出 author 為 Effie992down 的文章
-        const filteredArticlesDown = data.articles.filter(article => article.author === 'Effie992down');
-        const filteredArticlesUp = data.articles.filter(article => article.author === 'Effie992up');
-        // 更新狀態，只將符合條件的文章存入 lighthouses
-        lighthousesMobile.value = filteredArticlesDown;
-				lighthouses.value = filteredArticlesUp;
-        console.log(data.articles);
-      }
+      let allArticles = [];
+      let currentPage = 1;
+      let totalPages = 1;
+  
+      do {
+        const responseData = await $get(`articles`);        
+        // 發送分頁請求，包含目前頁數
+        const response = await $get(`articles?page=${currentPage}&limit=10`);
+        
+        if (response && response.articles) {
+          allArticles = allArticles.concat(response.articles); // 合併資料
+          totalPages = responseData.pagination.total_pages || 1; // 確認總頁數
+          currentPage++;  // 下一頁
+        } else {
+          break; // 如果回應異常，終止迭代
+        }
+      } while (currentPage <= totalPages);
+  
+      // 篩選符合條件的資料
+      const filteredArticlesDown = allArticles.filter(article => article.author === 'Effie992down');
+      const filteredArticlesUp = allArticles.filter(article => article.author === 'Effie992up');
+  
+      // 更新狀態
+      lighthousesMobile.value = filteredArticlesDown;
+      lighthouses.value = filteredArticlesUp;
+  
     } catch (error) {
-      console.error('Error fetching article data:', error);
-      throw error;  // 抛出错误，以便调用处处理
+      console.error('Error fetching all articles:', error);
+      throw error;
     }
   };
+  
 
   // 返回需要暴露的 state 和 actions
   return {
