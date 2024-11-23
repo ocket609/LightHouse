@@ -18,7 +18,7 @@
   letter-spacing: 4px;
 }
 
-//
+// homeStory
 .homeStory {
   width: 100%;
   height: 100%;
@@ -27,6 +27,7 @@
   background-size: cover;
   background-position: center;
   padding: 80px 12px;
+  overflow: hidden; // 限制範圍，燈束hover不會超出造成出現x軸。
 
   &-content {
     width: 100%;
@@ -35,7 +36,62 @@
     align-items: center;
     row-gap: 60px;
   }
-  &-content-card {
+
+  // homeStory-card
+  .homeStory-card {
+    position: relative;
+    //max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .homeStory-card::after {
+    content: '';
+    position: absolute;
+    bottom: 350px;
+    left: 130px;
+    width: 300px;
+    height: 400px;
+    background: linear-gradient(to top, rgba(255, 92, 0, 0.4), rgba(255, 92, 0, 0));
+    clip-path: polygon(50% 100%, 100% 0, 0 0);
+    transform: rotate(-35deg) translate(0, 0);
+    transition: transform 1s steps(10, start);
+    z-index: 0; /* 放在 .testt3 的後面 */
+    opacity: 0;
+    //display: none;
+  }
+
+  // card hover
+  /* transition 不支援 display 屬性進行過渡，因此使用 display-none/block 會造成 transition 失效；改使用 opacity: 0;+visibility: hidden; / opacity: 1；+visibility: visible; */
+  .homeStory-card_hover {
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 240px 240px 0 0;
+    transition-duration: 1s;
+    z-index: 10;
+    &-text {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border-bottom: 12px solid $primary;
+    }
+  }
+  .homeStory-card-L:hover .homeStory-card_hover,
+  .homeStory-card-M:hover .homeStory-card_hover,
+  .homeStory-card-R:hover .homeStory-card_hover {
+    visibility: visible; /* 在 hover 時顯示 */
+    opacity: 1;
+  }
+
+  //
+  .homeStory-card-L {
+    background-image: url(../../../public/lighthouse_img/mael-balland-BtTY5Y5dAa0-unsplash.jpg);
     width: 351px;
     height: 320px;
     border-radius: 240px 240px 0 0;
@@ -44,140 +100,76 @@
     background-position: center;
     position: relative;
     //overflow: visible;
-    z-index: 2;
-    &-text {
-      padding: 125.5px 63.5px 0;
-    }
+    z-index: 1;
   }
-  &-content-card:nth-child(1) {
-    background-image: url(../../../public/lighthouse_img/mael-balland-BtTY5Y5dAa0-unsplash.jpg);
-    .homeStory-content-card-hover {
-      /* transition 不支援 display 屬性進行過渡，因此使用 display-none/block 會造成 transition 失效；改使用 opacity: 0;+visibility: hidden; / opacity: 1；+visibility: visible; */
-      opacity: 0;
-      visibility: hidden;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 240px 240px 0 0;
-      transition-duration: 1s;
-      z-index: 3;
-      &-text {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        border-bottom: 12px solid $primary;
-        z-index: 3;
-      }
-    }
-    &:hover .homeStory-content-card-hover {
-      opacity: 1;
-      visibility: visible;
-    }
-  }
-
-  &-content-card:nth-child(2) {
+  .homeStory-card-M {
     background-image: url(../../../public/lighthouse_img/birk-enwald-q-ToUbpoK14-unsplash.jpg);
-    .homeStory-content-card-hover {
-      opacity: 0;
-      visibility: hidden;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 240px 240px 0 0;
-      transition-duration: 1s;
-      &-text {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        border-bottom: 12px solid $primary;
-      }
-    }
-    &:hover .homeStory-content-card-hover {
-      opacity: 1;
-      visibility: visible;
-    }
+    width: 351px;
+    height: 320px;
+    border-radius: 240px 240px 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    //overflow: visible;
+    z-index: 1;
   }
-  &-content-card:nth-child(3) {
+  .homeStory-card-R {
     background-image: url(../../../public/lighthouse_img/michael-krahn-ikgFjrzGsAE-unsplash.jpg);
-    .homeStory-content-card-hover {
-      opacity: 0;
-      visibility: hidden;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 240px 240px 0 0;
-      transition-duration: 1s;
-      &-text {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        border-bottom: 12px solid $primary;
-      }
-    }
-    &:hover .homeStory-content-card-hover {
-      opacity: 1;
-      visibility: visible;
-    }
+    width: 351px;
+    height: 320px;
+    border-radius: 240px 240px 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+  }
+  .homeStory-card-text {
+    padding: 125.5px 63.5px 0;
   }
 }
 
 @media (min-width: 768px) {
   .homeStory {
     padding: 160px 12px;
-    &-content-card {
-      width: 416px;
-      height: 564px;
-      &-text {
-        padding: 215px 96px 0;
-      }
+    .homeStory-card-text {
+      padding: 215px 96px 0;
     }
 
-    .homeStory-light {
-      opacity: 0;
-      //visibility: hidden;
-      position: absolute;
-      bottom: 324px;
-      left: 154.87px;
-      // bottom: 0;
-      // left: 50%;
-      width: 320px;
-      height: 500px;
-      background: linear-gradient(to top, rgba(255, 92, 0, 0.4), rgba(255, 92, 0, 0));
-      clip-path: polygon(50% 100%, 100% 0, 0 0);
-      transform: rotate(-50deg);
-      transition: transform 1s steps(10, start);
-      z-index: -1;
+    .homeStory-card-L {
+      width: 416px;
+      height: 564px;
     }
-  }
-  .homeStory-content-card:hover .homeStory-light {
-    opacity: 1;
-    transform: rotate(30deg); /*目標角度 */
+    .homeStory-card-M {
+      width: 416px;
+      height: 564px;
+    }
+    .homeStory-card-R {
+      width: 416px;
+      height: 564px;
+    }
   }
 }
 
 @media (min-width: 992px) {
-  .homeStory-content-card:hover .homeStory-light {
-    transform: rotate(40deg);
-  }
 }
 
 @media (min-width: 1260px) {
   .homeStory {
     &-content {
+      display: flex;
       flex-direction: row;
-      justify-content: space-between;
     }
-  }
-  .homeStory-content-card:hover .homeStory-light {
-    transform: rotate(50deg);
+
+    //.testt2-cont,
+    .homeStory-card {
+      width: 33.333%;
+    }
+    .homeStory-card:hover::after {
+      transform: rotate(35deg) translate(80px, -100px); /* 在 hover 時旋轉 */
+      opacity: 1;
+      //display: block;
+    }
   }
 }

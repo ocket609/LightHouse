@@ -7,49 +7,54 @@
         <div class="border-line"></div>
       </div>
       <div class="homeStory-content row mx-0">
-        <div class="col-12 col-xl-4 homeStory-content-card px-0">
-          <p class="text-center homeStory-content-card-text">
-            忍受寂寞扛起整個夜晚， 深夜裡的曙光<br />
-            是燈塔人的驕傲
-          </p>
-          <div class="homeStory-content-card-hover">
-            <div class="homeStory-content-card-hover-text">
-              <p class="text-center homeStory-content-card-text mb-0">
-                忍受寂寞扛起整個夜晚， 深夜裡的曙光<br />
-                是燈塔人的驕傲
-              </p>
-              <p class="text-center text-primary fw-bold pt-6">MORE</p>
-            </div>
-          </div>
-          <div class="homeStory-light d-none d-md-block"></div>
-        </div>
-        <div class="col-12 col-xl-4 homeStory-content-card px-0">
-          <p class="text-center homeStory-content-card-text">
-            海崖孤燈閃爍 <br />
-            基隆的燈塔們是種想念
-          </p>
-          <div class="homeStory-content-card-hover">
-            <div class="homeStory-content-card-hover-text">
-              <p class="text-center homeStory-content-card-text mb-0">
-                海崖孤燈閃爍 <br />
-                基隆的燈塔們是種想念
-              </p>
-              <p class="text-center text-primary fw-bold pt-6">MORE</p>
+        <div class="homeStory-card px-0">
+          <div class="homeStory-card-L">
+            <p class="text-center homeStory-card-text mb-0">
+              忍受寂寞扛起整個夜晚， 深夜裡的曙光<br />
+              是燈塔人的驕傲
+            </p>
+            <div class="homeStory-card_hover">
+              <div class="homeStory-card_hover-text">
+                <p class="text-center homeStory-card-text mb-0">
+                  忍受寂寞扛起整個夜晚， 深夜裡的曙光<br />
+                  是燈塔人的驕傲
+                </p>
+                <p class="text-center text-primary fw-bold pt-6">MORE</p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-12 col-xl-4 homeStory-content-card px-0">
-          <p class="text-center homeStory-content-card-text">
-            豎立於茫茫大海之中<br />
-            是歸來人的指引
-          </p>
-          <div class="homeStory-content-card-hover">
-            <div class="homeStory-content-card-hover-text">
-              <p class="text-center homeStory-content-card-text mb-0">
-                豎立於茫茫大海之中<br />
-                是歸來人的指引
-              </p>
-              <p class="text-center text-primary fw-bold pt-6">MORE</p>
+        <div class="homeStory-card px-0">
+          <div class="homeStory-card-M">
+            <p class="text-center homeStory-card-text mb-0">
+              海崖孤燈閃爍<br />
+              基隆的燈塔們是種想念
+            </p>
+            <div class="homeStory-card_hover">
+              <div class="homeStory-card_hover-text">
+                <p class="text-center homeStory-card-text mb-0">
+                  海崖孤燈閃爍<br />
+                  基隆的燈塔們是種想念
+                </p>
+                <p class="text-center text-primary fw-bold pt-6">MORE</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="homeStory-card px-0">
+          <div class="homeStory-card-R">
+            <p class="text-center homeStory-card-text mb-0">
+              豎立於茫茫大海之中<br />
+              是歸來人的指引
+            </p>
+            <div class="homeStory-card_hover">
+              <div class="homeStory-card_hover-text">
+                <p class="text-center homeStory-card-text mb-0">
+                  豎立於茫茫大海之中<br />
+                  是歸來人的指引
+                </p>
+                <p class="text-center text-primary fw-bold pt-6">MORE</p>
+              </div>
             </div>
           </div>
         </div>
