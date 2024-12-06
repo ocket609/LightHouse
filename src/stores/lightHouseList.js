@@ -2,11 +2,13 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import { $get } from '@/api/util/axiosInstance';
+import debounce from 'lodash/debounce';
 
 export const useLighthouseStore = defineStore('lighthouse', () => {
   // 使用 ref 定義 state
   const lighthouses = ref([]);  // 初始化空数组
 	const lighthousesMobile = ref([]);
+  const isLoading = ref(false);
   // 定義 getArticleData 函數
   const getArticleData = async () => {
     try {
@@ -35,7 +37,9 @@ export const useLighthouseStore = defineStore('lighthouse', () => {
       // 更新狀態
       lighthousesMobile.value = filteredArticlesDown;
       lighthouses.value = filteredArticlesUp;
-  
+      
+      // console.log(lighthouses.value);
+      
     } catch (error) {
       console.error('Error fetching all articles:', error);
       throw error;
@@ -43,8 +47,22 @@ export const useLighthouseStore = defineStore('lighthouse', () => {
   };
   
 
+
+const filterLighthouses = debounce(async (filterValue) => {
+  isLoading.value = true;
+  await getArticleData();
+  lighthouses.value = lighthouses.value.filter(
+    (lighthouse) => lighthouse.tag.includes(filterValue)
+  );
+  console.log(filterValue);
+  
+  isLoading.value = false;
+}, 300); // 300ms 防抖延遲
+
   // 返回需要暴露的 state 和 actions
   return {
+    filterLighthouses,
+    isLoading,
     lighthouses,
 		lighthousesMobile,
     getArticleData,
