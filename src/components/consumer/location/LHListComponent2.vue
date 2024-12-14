@@ -24,10 +24,15 @@
       <div class="row" ref="masonryContainer" v-else>
         <!-- 如果有資料，正常渲染卡片 -->
         <template v-if="lighthouseStore.lighthouses.length > 0">
-          <div class="col-6 col-lg-4 mb-3" v-for="region in lighthouseStore.lighthouses" :key="region.id">
+          <div class="col-6 col-lg-4 mb-3 " v-for="region in lighthouseStore.lighthouses" :key="region.id">
             <div class="card border-0 mb-3">
               <div class="card-overlay">
-                <img :src="region.image" class="card-img-top" :alt="region.title" @load="layoutMasonry" />
+                <img
+                  :src="region.image"
+                  class="card-img-top"
+                  :alt="region.title"
+                  @load="layoutMasonry"
+                />
                 <div class="overlay text-center d-flex flex-column align-items-center justify-content-center p-5">
                   <h5 class="card-title fs-3">{{ region.title }}</h5>
                   <p>{{ region.description.slice(0, 12) }}...</p>
@@ -51,7 +56,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import imagesLoaded from 'imagesloaded'
 import Masonry from 'masonry-layout'
 import { useLighthouseStore } from '@/stores/lightHouseList.js'
@@ -60,12 +65,8 @@ const lighthouseStore = useLighthouseStore()
 const masonryContainer = ref(null)
 let masonryInstance = null
 
-const layoutMasonry = () => {
-  if (masonryInstance) {
-    masonryInstance.layout()
-  }
-}
 
+// 初始化 Masonry 佈局
 const initMasonry = () => {
     if (!masonryContainer.value) {
         // console.warn("Skipping Masonry initialization, container not ready.");
@@ -78,6 +79,20 @@ const initMasonry = () => {
         });
     });
 };
+// 重新佈局 Masonry
+const layoutMasonry = () => {
+  if (masonryInstance) {
+    masonryInstance.layout()
+  }
+}
+// 監測資料改變並重新佈局
+watch(
+  () => lighthouseStore.lighthouses,
+  () => {
+    layoutMasonry()
+  }
+)
+
 
 onMounted(async () => {
     await lighthouseStore.getArticleData();
@@ -89,6 +104,11 @@ onMounted(async () => {
 </script>
 
 <style>
+.masonry-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 16px;
+}
 @media (max-width: 992px) {
   .col-6 {
     width: 50%;

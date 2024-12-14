@@ -38,8 +38,6 @@ export const useLighthouseStore = defineStore('lighthouse', () => {
       lighthousesMobile.value = filteredArticlesDown;
       lighthouses.value = filteredArticlesUp;
       
-      // console.log(lighthouses.value);
-      
     } catch (error) {
       console.error('Error fetching all articles:', error);
       throw error;
@@ -50,11 +48,13 @@ export const useLighthouseStore = defineStore('lighthouse', () => {
 
 const filterLighthouses = debounce(async (filterValue) => {
   isLoading.value = true;
-  await getArticleData();
+  if(lighthouses.value.length === 0){
+    await getArticleData();
+  }
   lighthouses.value = lighthouses.value.filter(
     (lighthouse) => lighthouse.tag.includes(filterValue)
   );
-  console.log(filterValue);
+
   
   isLoading.value = false;
 }, 300); // 300ms 防抖延遲
