@@ -24,7 +24,7 @@
       <div class="row" ref="masonryContainer" v-else>
         <!-- 如果有資料，正常渲染卡片 -->
         <template v-if="lighthouseStore.lighthouses.length > 0">
-          <div class="col-6 col-lg-4 mb-3 " v-for="region in lighthouseStore.lighthouses" :key="region.id">
+          <div class="col-6 col-lg-4 mb-3" v-for="region in lighthouseStore.lighthouses" :key="region.id">
             <div class="card border-0 mb-3">
               <div class="card-overlay">
                 <img
@@ -68,15 +68,14 @@ let masonryInstance = null
 
 // 初始化 Masonry 佈局
 const initMasonry = () => {
-    if (!masonryContainer.value) {
-        // console.warn("Skipping Masonry initialization, container not ready.");
-        return;
-    }
+    if (!masonryContainer.value) return;
+
     imagesLoaded(masonryContainer.value, () => {
         masonryInstance = new Masonry(masonryContainer.value, {
             itemSelector: '.col-6, .col-lg-4',
             percentPosition: true,
         });
+        masonryInstance.layout(); // 確保初始佈局
     });
 };
 // 重新佈局 Masonry
@@ -89,16 +88,18 @@ const layoutMasonry = () => {
 watch(
   () => lighthouseStore.lighthouses,
   () => {
-    layoutMasonry()
+    if (masonryInstance) {
+      masonryInstance.destroy(); // 銷毀舊的 Masonry 實例
+    }
+    initMasonry(); // 重新初始化 Masonry
   }
-)
+);
 
 
 onMounted(async () => {
     await lighthouseStore.getArticleData();
     initMasonry();
 });
-
 
 
 </script>

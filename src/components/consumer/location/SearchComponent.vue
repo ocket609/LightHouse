@@ -13,25 +13,24 @@ const lighthouseStore = useLighthouseStore()
       <div class="initial d-none d-lg-block"></div>
 
       <!-- 中間的 dropdown 群組置中 -->
-      <div
-        class="d-flex initial justify-content-lg-center justify-content-md-start justify-content-center"
-      >
+      <div class="d-flex initial justify-content-lg-center justify-content-md-start justify-content-center">
         <template v-for="item in searchList" :key="item.title">
           <div class="btn-group my-5 my-lg-10 mx-2 mx-lg-5">
-            <button type="button" class="btn btn-outline-secondary rounded-bottom-2 btn-dropDown-bg" @click="lighthouseStore.getArticleData">
+            <button type="button" class="btn btn-outline-secondary rounded-bottom-2 btn-dropDown-bg"
+              @click="lighthouseStore.getArticleData">
               {{ item.title }}
             </button>
-            <button
-              type="button"
+            <button type="button"
               class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split rounded-start-2 btn-dropDown-bg"
-              data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="parent"
-            >
+              data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="parent">
               <span class="visually-hidden">{{ item.title }}</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-bg">
               <li v-for="item2 in item.items" :key="item2.id">
-                <button class="dropdown-item" type="button"
-                @click="lighthouseStore.filterLighthouses(item2.label)">{{ item2.label }}</button>
+                <button class="dropdown-item" type="button" @click="() => {
+                  lighthouseStore.filterLighthouses(item2.label);
+                  layoutMasonry(); // 篩選後重新佈局
+                }">{{ item2.label }}</button>
               </li>
             </ul>
 
@@ -45,12 +44,8 @@ const lighthouseStore = useLighthouseStore()
           <i class="bi bi-search"></i>
         </button>
         <div class="dropdown2">
-          <button
-            class="btn btn-secondary bg-transparent border-0 text-bg-dark"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
+          <button class="btn btn-secondary bg-transparent border-0 text-bg-dark" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
             <i class="bi bi-sort-down"></i>
           </button>
           <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
@@ -67,18 +62,22 @@ const lighthouseStore = useLighthouseStore()
 .initial {
   flex: auto;
 }
+
 @media (min-width: 1200px) {
   .initial {
     flex: 2;
   }
 }
-.btn-dropDown-bg:hover{
+
+.btn-dropDown-bg:hover {
   color: var(--bs-lh-Tertiary-100) !important;
   background-color: #d9d9d917;
 }
-.dropdown-item{
+
+.dropdown-item {
   color: #fff;
 }
+
 .dropdown-menu-bg {
   --bs-dropdown-bg: #343a40;
 }

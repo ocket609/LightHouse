@@ -4,7 +4,6 @@ import AdComponent from '@/components/consumer/location/AdComponent.vue'
 import SearchComponent from '@/components/consumer/location/SearchComponent.vue'
 import LHListComponent from '@/components/consumer/location/LHListComponent.vue'
 import LHListComponent2 from '@/components/consumer/location/LHListComponent2.vue'
-import PaginationComponent from '@/components/consumer/utils/PaginationComponent.vue'
 import { useLighthouseStore } from '@/stores/lightHouseList.js'
 
 const lighthouseStore = useLighthouseStore()
@@ -54,5 +53,4 @@ onMounted(async () => {
       </div>
     </div>
   </div>
-  <PaginationComponent />
 </template>
