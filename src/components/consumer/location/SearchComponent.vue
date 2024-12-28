@@ -1,9 +1,9 @@
 <script setup>
 import { searchList } from '@/constants/searchListData.js'
 import { useLighthouseStore } from '@/stores/lightHouseList.js'
-
+import { useWaterfallStore } from '@/stores/waterfall.js'
 const lighthouseStore = useLighthouseStore()
-
+const waterfallStore = useWaterfallStore()
 </script>
 
 <template>
@@ -29,7 +29,7 @@ const lighthouseStore = useLighthouseStore()
               <li v-for="item2 in item.items" :key="item2.id">
                 <button class="dropdown-item" type="button" @click="() => {
                   lighthouseStore.filterLighthouses(item2.label);
-                  layoutMasonry(); // 篩選後重新佈局
+                  waterfallStore.initMasonry(); // 篩選後重新佈局
                 }">{{ item2.label }}</button>
               </li>
             </ul>

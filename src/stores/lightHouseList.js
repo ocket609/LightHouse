@@ -5,7 +5,6 @@ import { $get } from '@/api/util/axiosInstance';
 import debounce from 'lodash/debounce';
 
 export const useLighthouseStore = defineStore('lighthouse', () => {
-  // 使用 ref 定義 state
   const lighthouses = ref([]);  // 初始化空数组
 	const lighthousesMobile = ref([]);
   const isLoading = ref(false);
