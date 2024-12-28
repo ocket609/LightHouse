@@ -16,17 +16,23 @@
             <button
               class="navbar-toggler material-icon border-0 d-flex align-items-center"
               type="button"
+              @click="toggleMenu"
               data-bs-toggle="collapse"
               data-bs-target="#navbarToggleExternalContent"
               aria-controls="navbarToggleExternalContent"
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span class="material-symbols-outlined text-white link-primary align-middle">
-                menu
-              </span>
-              <span class="material-symbols-outlined text-white link-primary align-middle">
+              <!-- 當 isMenuOpen 為 true 時顯示 close -->
+              <span
+                class="material-symbols-outlined text-white link-primary align-middle"
+                v-if="isMenuOpen"
+              >
                 close
+              </span>
+              <!-- 當 isMenuOpen 為 false 時顯示 menu -->
+              <span class="material-symbols-outlined text-white link-primary align-middle" v-else>
+                menu
               </span>
             </button>
           </div>
@@ -121,12 +127,19 @@
         </li>
       </ul>
     </div>
-    <!-- <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/about">About</RouterLink> -->
-    <!-- <div class="header-sideR"></div> -->
   </header>
 </template>
 <script setup>
 import { RouterLink } from 'vue-router'
+import { ref } from 'vue'
+
+// menu 按鈕切換
+// 定義布林變量 isMenuOpen
+const isMenuOpen = ref(false)
+
+// 定義切換函數
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value
+}
 </script>
 <style></style>
