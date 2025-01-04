@@ -18,9 +18,9 @@ onMounted(async () => {
   <div class="bg-dark pt-5 pb-10">
     <div class="container py-10">
       <template v-if="lighthouseStore.isLoading">
-        <div class="row gap-1 flex-nowrap">
+        <div class="row row row-cols-1 row-cols-md-2 row-cols-lg-3 g-6 justify-content-between">
           <div
-            class="card col-6 col-lg-4 mb-3"
+            class="card card-width"
             aria-hidden="true"
             style="background: #dadee3d6"
             v-for="i in 3"
