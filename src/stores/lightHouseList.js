@@ -1,69 +1,78 @@
-// stores/lighthouse.js
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import { $get } from '@/api/util/axiosInstance';
 import debounce from 'lodash/debounce';
 
 export const useLighthouseStore = defineStore('lighthouse', () => {
-  const lighthouses = ref([]);  // 初始化空数组
-	const lighthousesMobile = ref([]);
+  const originalLighthouses = ref([]); // 存储原始数据
+  const lighthouses = ref([]);
+  const lighthousesMobile = ref([]);
   const isLoading = ref(false);
-  // 定義 getArticleData 函數
+  const isDataLoaded = ref(false); // false 表示未加载，true 表示已加载
+
   const getArticleData = async () => {
+    if (isDataLoaded.value) return; // 如果数据已加载，不重复请求
+    isLoading.value = true;
     try {
       let allArticles = [];
       let currentPage = 1;
       let totalPages = 1;
-  
+
       do {
-        const responseData = await $get(`articles`);        
-        // 發送分頁請求，包含目前頁數
+        const responseData = await $get(`articles`);
         const response = await $get(`articles?page=${currentPage}&limit=10`);
-        
+
         if (response && response.articles) {
-          allArticles = allArticles.concat(response.articles); // 合併資料
-          totalPages = responseData.pagination.total_pages || 1; // 確認總頁數
-          currentPage++;  // 下一頁
+          allArticles = allArticles.concat(response.articles);
+          totalPages = responseData.pagination.total_pages || 1;
+          currentPage++;
         } else {
-          break; // 如果回應異常，終止迭代
+          break;
         }
       } while (currentPage <= totalPages);
-  
-      // 篩選符合條件的資料
+
       const filteredArticlesDown = allArticles.filter(article => article.author === 'Effie992down');
       const filteredArticlesUp = allArticles.filter(article => article.author === 'Effie992up');
-  
-      // 更新狀態
+
       lighthousesMobile.value = filteredArticlesDown;
-      lighthouses.value = filteredArticlesUp;
-      
+      originalLighthouses.value = filteredArticlesUp;
+      lighthouses.value = filteredArticlesUp; // 初始化显示数据
+
+      isDataLoaded.value = true; // 数据加载完成
     } catch (error) {
-      console.error('Error fetching all articles:', error);
-      throw error;
+      console.error('Error fetching articles:', error);
+    } finally {
+      isLoading.value = false;
     }
   };
+
+  const filterLighthouses = debounce(async (filterValue) => {
+    // 当数据未加载或需要重新加载时，先加载数据
+    if (!isDataLoaded.value) {
+      await getArticleData(); 
+      isDataLoaded.value = true; 
+    }
+  
+    if(filterValue !== '所有區域'){
+      lighthouses.value = originalLighthouses.value.filter((lighthouse) =>
+        lighthouse.tag.includes(filterValue)
+      );
+      
+      isLoading.value = false; // 标记筛选完成
+    }else{
+      lighthouses.value = originalLighthouses.value
+    }
+
+  }, 300); 
   
 
-
-const filterLighthouses = debounce(async (filterValue) => {
-  isLoading.value = true;
-  if(lighthouses.value.length === 0){
-    await getArticleData();
-  }
-  lighthouses.value = lighthouses.value.filter(
-    (lighthouse) => lighthouse.tag.includes(filterValue)
-  );
-
-  
-  isLoading.value = false;
-}, 300); // 300ms 防抖延遲
-
-  // 返回需要暴露的 state 和 actions
   return {
     filterLighthouses,
     isLoading,
     lighthouses,
-		lighthousesMobile,
+    originalLighthouses,
+    lighthousesMobile,
     getArticleData,
   };
 });
+

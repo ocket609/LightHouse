@@ -4,6 +4,11 @@ import { useLighthouseStore } from '@/stores/lightHouseList.js'
 import { useWaterfallStore } from '@/stores/waterfall.js'
 const lighthouseStore = useLighthouseStore()
 const waterfallStore = useWaterfallStore()
+
+const clickFilterValue = (value) => {
+  lighthouseStore.filterLighthouses(value);
+  waterfallStore.initMasonry(); // 篩選後重新佈局
+}
 </script>
 
 <template>
@@ -17,7 +22,7 @@ const waterfallStore = useWaterfallStore()
         <template v-for="item in searchList" :key="item.title">
           <div class="btn-group my-5 my-lg-10 mx-2 mx-lg-5">
             <button type="button" class="btn btn-outline-secondary rounded-bottom-2 btn-dropDown-bg"
-              @click="lighthouseStore.getArticleData">
+              @click="lighthouseStore.filterLighthouses(item.title)">
               {{ item.title }}
             </button>
             <button type="button"
@@ -27,10 +32,7 @@ const waterfallStore = useWaterfallStore()
             </button>
             <ul class="dropdown-menu dropdown-menu-bg">
               <li v-for="item2 in item.items" :key="item2.id">
-                <button class="dropdown-item" type="button" @click="() => {
-                  lighthouseStore.filterLighthouses(item2.label);
-                  waterfallStore.initMasonry(); // 篩選後重新佈局
-                }">{{ item2.label }}</button>
+                <button class="dropdown-item" type="button" @click="clickFilterValue(item2.label)">{{ item2.label }}</button>
               </li>
             </ul>
 

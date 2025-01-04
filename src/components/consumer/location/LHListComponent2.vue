@@ -10,6 +10,7 @@ const masonryContainerRef = (el) => {
 onMounted(async () => {
     await lighthouseStore.getArticleData(); // 確保數據已載入
     waterfallStore.initMasonry(); // 初始化 Masonry
+    window.scrollTo(0, 0)
   });
 
 </script>
@@ -67,7 +68,7 @@ onMounted(async () => {
         <!-- 如果沒有資料，顯示提示訊息 -->
         <template v-else>
           <div class="text-center w-100">
-            <p class="fs-2 text-white pb-0 mb-10">沒有符合條件的燈塔資料</p>
+            <p class="fs-2 text-white pb-0 mb-16">沒有符合條件的燈塔資料</p>
           </div>
         </template>
       </div>
@@ -75,7 +76,7 @@ onMounted(async () => {
   </div>
 </template>
 
-<style>
+<style lang="scss" scoped>
 .masonry-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -92,14 +93,5 @@ onMounted(async () => {
   .col-6 {
     width: 100%;
   }
-}
-
-.container {
-  margin-top: 20px;
-}
-
-.card-img-top {
-  width: 100%;
-  height: auto;
 }
 </style>
