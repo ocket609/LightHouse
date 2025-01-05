@@ -72,7 +72,9 @@ console.log(filterValue);
         lighthouse.tag.some(tag => filterValue.includes(tag) || tag.includes(filterValue))
       );
       isLoading.value = false; // 标记筛选完成
-    }else{      
+    }else{
+      console.log(lighthouses.value);
+            
       lighthouses.value = originalLighthouses.value;
       lighthousesMobile.value = originalMobileLighthouses.value;
     }
