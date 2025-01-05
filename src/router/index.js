@@ -3,7 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import ConsumerLayout from '../views/consumer/ConsumerLayout.vue'
 import ConsumerHome from '../views/consumer/HomePage.vue'
 import ConsumerLocation from '@/views/consumer/ConsumerLocation.vue'
-
+import ConsumerSingleLocation from '@/views/consumer/ConsumerSingleLocation.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -24,6 +24,12 @@ const router = createRouter({
           name: 'consumerLocation',
           component: ConsumerLocation,
           meta: { title: '燈塔列表' },
+        },
+        {
+          path: 'location/:singleLocationId',
+          name: 'singleLocation',
+          component: ConsumerSingleLocation,
+          meta: { title: '燈塔內容' },
         },
       ]
     },
