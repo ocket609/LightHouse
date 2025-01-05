@@ -92,23 +92,19 @@ console.log(filterValue);
         .filter((lighthouse) =>
           lighthouse.tag.some(tag => regionOrder.includes(tag) || tag.includes(regionOrder)) // 確保篩選符合篩選值
         )
-        lighthousesMobile.value = originalMobileLighthouses.value
-        .filter((lighthouse) =>
-          lighthouse.tag.some(tag => regionOrder.includes(tag) || tag.includes(regionOrder)) 
-        )
         // 排序
         .sort((a, b) => {
           const regionA = regionOrder.indexOf(a.tag.find(tag => regionOrder.includes(tag)) || ''); 
           const regionB = regionOrder.indexOf(b.tag.find(tag => regionOrder.includes(tag)) || ''); 
           return regionA - regionB; 
         });
+        console.log(`'由北至南'`,lighthouses.value);
+        console.log(`'由北至南'`,lighthousesMobile.value);
+        
+        
     } else if (filterValue === '由南至北') {
       // 篩選條件
       lighthouses.value = originalLighthouses.value
-        .filter((lighthouse) =>
-          lighthouse.tag.some(tag => regionOrder.includes(tag) || tag.includes(regionOrder)) 
-        )
-        lighthousesMobile.value = originalMobileLighthouses.value
         .filter((lighthouse) =>
           lighthouse.tag.some(tag => regionOrder.includes(tag) || tag.includes(regionOrder)) 
         )

@@ -48,7 +48,12 @@ onMounted(async () => {
                     <div class="overlay text-center d-flex flex-column align-items-center justify-content-center p-5">
                       <h5 class="card-title fs-3">{{ region.title }}</h5>
                       <p>{{ region.description.slice(0, 12) }}...</p>
-                      <button type="button" class="fs-4 btn btn-outline-primary">查看更多</button>
+                      <RouterLink
+                      :to="{ name: 'singleLocation', params: { singleLocationId: region.title } }"
+                      class="fs-4 btn btn-outline-primary"
+                    >
+                    查看更多
+                    </RouterLink>
                     </div>
                   </div>
                 </div>
