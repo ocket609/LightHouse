@@ -24,7 +24,7 @@ const toggleSearch = () => {
       <div class="initial d-none d-lg-block"></div>
 
       <!-- 中間的 dropdown 群組置中 -->
-      <div class="d-flex initial justify-content-lg-center justify-content-md-start justify-content-center">
+      <div class="d-flex initial justify-content-lg-center justify-content-lg-start justify-content-center">
         <template v-for="item in searchList" :key="item.title">
           <div class="btn-group my-2 my-lg-10 mx-2 mx-lg-5">
             <button type="button" class="btn btn-outline-secondary rounded-bottom-2 btn-dropDown-bg"
@@ -48,7 +48,7 @@ const toggleSearch = () => {
       </div>
 
       <!-- 右側的 dropdown2 -->
-      <div class="d-none d-md-flex initial justify-content-end">
+      <div class="d-none d-lg-flex initial justify-content-end">
         <div class="d-flex flex-column">
           <div class="d-flex">
             <button type="button" class="btn bg-transparent text-bg-dark border-0" @click="toggleSearch">
