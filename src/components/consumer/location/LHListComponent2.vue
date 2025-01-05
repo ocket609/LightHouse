@@ -1,18 +1,28 @@
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { useLighthouseStore } from '@/stores/lightHouseList.js'
 import { useWaterfallStore } from '@/stores/waterfall.js'
 const lighthouseStore = useLighthouseStore()
 const waterfallStore = useWaterfallStore()
+const route = useRoute()
+
 const masonryContainerRef = (el) => {
   waterfallStore.masonryContainer = el
 }
-onMounted(async () => {
-    await lighthouseStore.getArticleData(); // 確保數據已載入
-    waterfallStore.initMasonry(); // 初始化 Masonry
-    window.scrollTo(0, 0)
-  });
+console.log(route);
 
+// 監聽路由變化
+watch(route, (to, from) => {
+  if (from.meta.title === '燈塔內容') {
+    waterfallStore.initMasonry() // 初始化 Masonry
+  }
+})
+onMounted(async () => {
+  await lighthouseStore.getArticleData() // 確保數據已載入
+  waterfallStore.initMasonry() // 初始化 Masonry
+  window.scrollTo(0, 0)
+})
 </script>
 <template>
   <div class="bg-dark pt-5 pb-10">
@@ -60,11 +70,11 @@ onMounted(async () => {
                   <p>{{ region.description.slice(0, 12) }}...</p>
                   <!-- <button type="button" class="fs-4 btn btn-outline-primary">查看更多</button> -->
                   <RouterLink
-                  :to="{ name: 'singleLocation', params: { singleLocationId: region.title } }"
-                  class="fs-4 btn btn-outline-primary"
-                >
-                查看更多
-                </RouterLink>
+                    :to="{ name: 'singleLocation', params: { singleLocationId: region.title } }"
+                    class="fs-4 btn btn-outline-primary"
+                  >
+                    查看更多
+                  </RouterLink>
                 </div>
               </div>
             </div>
