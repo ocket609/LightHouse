@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import { $get } from '@/api/util/axiosInstance';
 import debounce from 'lodash/debounce';
 
+
 export const useLighthouseStore = defineStore('lighthouse', () => {
   const originalLighthouses = ref([]); // 存储原始数据
   const originalMobileLighthouses = ref([]); // 存储原始数据
@@ -10,6 +11,7 @@ export const useLighthouseStore = defineStore('lighthouse', () => {
   const lighthousesMobile = ref([]);
   const isLoading = ref(false);
   const isDataLoaded = ref(false); // false 表示未加载，true 表示已加载
+
 
   const getArticleData = async () => {
     if (isDataLoaded.value) return; // 如果数据已加载，不重复请求
@@ -48,8 +50,13 @@ export const useLighthouseStore = defineStore('lighthouse', () => {
     }
   };
 
+  const searchKey = (filterValue) =>{
+console.log(filterValue);
+
+  }
+
   const filterLighthouses = debounce(async (filterValue) => {
-    console.log(filterValue);
+    // console.log(filterValue);
     
     // 当数据未加载或需要重新加载时，先加载数据
     if (!isDataLoaded.value) {
@@ -65,24 +72,66 @@ export const useLighthouseStore = defineStore('lighthouse', () => {
         lighthouse.tag.some(tag => filterValue.includes(tag) || tag.includes(filterValue))
       );
       isLoading.value = false; // 标记筛选完成
-    }else{
-      console.log(2);
-      
-      lighthouses.value = originalLighthouses.value
+    }else{      
+      lighthouses.value = originalLighthouses.value;
       lighthousesMobile.value = originalMobileLighthouses.value;
     }
 
   }, 300); 
   
 
+  const regionOrder = ["北部", "東部", "中部", "西部", "南部"];
+
+  const sortLighthouses = debounce(async (filterValue) => {
+    
+    if(filterValue === '由北至南'){
+      // 篩選條件
+      lighthouses.value = originalLighthouses.value
+        .filter((lighthouse) =>
+          lighthouse.tag.some(tag => regionOrder.includes(tag) || tag.includes(regionOrder)) // 確保篩選符合篩選值
+        )
+        lighthousesMobile.value = originalMobileLighthouses.value
+        .filter((lighthouse) =>
+          lighthouse.tag.some(tag => regionOrder.includes(tag) || tag.includes(regionOrder)) 
+        )
+        // 排序
+        .sort((a, b) => {
+          const regionA = regionOrder.indexOf(a.tag.find(tag => regionOrder.includes(tag)) || ''); 
+          const regionB = regionOrder.indexOf(b.tag.find(tag => regionOrder.includes(tag)) || ''); 
+          return regionA - regionB; 
+        });
+    } else if (filterValue === '由南至北') {
+      // 篩選條件
+      lighthouses.value = originalLighthouses.value
+        .filter((lighthouse) =>
+          lighthouse.tag.some(tag => regionOrder.includes(tag) || tag.includes(regionOrder)) 
+        )
+        lighthousesMobile.value = originalMobileLighthouses.value
+        .filter((lighthouse) =>
+          lighthouse.tag.some(tag => regionOrder.includes(tag) || tag.includes(regionOrder)) 
+        )
+        // 排序
+        .sort((a, b) => {
+          const regionA = regionOrder.indexOf(a.tag.find(tag => regionOrder.includes(tag)) || ''); 
+          const regionB = regionOrder.indexOf(b.tag.find(tag => regionOrder.includes(tag)) || ''); 
+          return regionB - regionA; // 反向排序
+        });
+    }
+
+  }, 300);
+
+  
+  
   return {
     filterLighthouses,
+    sortLighthouses,
     isLoading,
     lighthouses,
     originalLighthouses,
     lighthousesMobile,
     getArticleData,
-    originalMobileLighthouses
+    originalMobileLighthouses,
+    searchKey
   };
 });
 
