@@ -2,7 +2,9 @@
   <div class="banner bg-black">
     <div class="banner-content banner-container position-relative">
       <div class="banner-main">
-        <h1 class="fw-bold text-white fs-sm-1 fs-2 text-lg-start text-center pb-md-10 pb-6 mb-0">
+        <h1
+          class="fm-Cormorant fw-bold text-white fs-sm-1 fs-2 text-lg-start text-center pb-md-10 pb-6 mb-0"
+        >
           LIGHTHOUSE
         </h1>
         <div class="banner-text text-success d-none d-lg-block py-2">

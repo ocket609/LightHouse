@@ -1,7 +1,4 @@
 h1 {
-  font-family:
-    Cormorant SC,
-    serif;
   letter-spacing: 5px;
 }
 .banner-container {
@@ -26,9 +23,9 @@ h1 {
     margin-bottom: 224px;
   }
   &-img {
-    width: 375px;
+    width: 335px;
     height: 480px;
-    background-image: url('./../../assets/lighthouse_img/tim-foster-luyqrtZaWmg-unsplash.jpg');
+    background-image: url('../../../public/lighthouse_img/tim-foster-luyqrtZaWmg-unsplash.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -37,12 +34,12 @@ h1 {
     z-index: -1;
     /* 光暈動畫 */
     box-shadow: 0px -40px 120px 0px #ff5c0066;
-    animation-name: oooo;
+    animation-name: halo;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-duration: 5s;
   }
-  @keyframes oooo {
+  @keyframes halo {
     0% {
       box-shadow: 0px -40px 120px 0px #ff5c0066;
     }
@@ -55,7 +52,7 @@ h1 {
   }
 }
 .banner-search {
-  min-width: 351px;
+  min-width: 335px;
   display: flex;
   justify-content: center;
   position: relative;
@@ -94,6 +91,17 @@ h1 {
 }
 
 //
+@media (min-width: 375px) {
+  .banner {
+    &-img {
+      width: 374px;
+    }
+  }
+  .banner-search {
+    max-width: 351px;
+  }
+}
+
 @media (min-width: 576px) {
   .banner {
     &-content {
