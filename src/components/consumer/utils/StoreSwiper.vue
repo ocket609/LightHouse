@@ -157,13 +157,7 @@ const storeData = ref([
 
 @media(min-width:576px) {
   .swiper-box {
-    padding: 20px;
-  }
-}
-
-@media(min-width: 768px) {
-  .swiper-box {
-    padding: 30px;
+    padding: 40px;
   }
 }
 
@@ -174,7 +168,7 @@ const storeData = ref([
 
 @media(min-width:576px) {
   .swiper-button-next {
-    right: -20px !important; // 控制箭头的右侧位置
+    right: -8px !important; // 控制箭头的右侧位置
     top: 55%; // 控制箭头的垂直位置
     transform: translateY(-35%); // 保证箭头垂直居中
     width: 40px; // 可以根据需求调整宽度
@@ -183,7 +177,7 @@ const storeData = ref([
   }
 
   .swiper-button-prev {
-    left: -20px !important; // 控制箭头的右侧位置
+    left: -8px !important; // 控制箭头的右侧位置
     top: 55%; // 控制箭头的垂直位置
     transform: translateY(-35%); // 保证箭头垂直居中
     width: 40px; // 可以根据需求调整宽度
@@ -201,7 +195,7 @@ const storeData = ref([
   }
 }
 
-@media(min-width:1200px) {
+@media(min-width:1440px) {
   .swiper-button-next {
     right: -30px !important; // 控制箭头的右侧位置
   }
