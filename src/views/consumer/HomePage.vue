@@ -2,9 +2,11 @@
 import BannerComponpent from '@/components/consumer/homePage/BannerComponpent.vue'
 import LocationComponent from '@/components/consumer/homePage/LocationComponent.vue'
 import StoreComponent from '@/components/consumer/homePage/StoreComponent.vue'
+import StoryComponpent from '@/components/consumer/homePage/StoryComponpent.vue'
 </script>
 <template>
   <BannerComponpent />
-  <LocationComponent/>
+  <LocationComponent />
   <StoreComponent />
+  <StoryComponpent />
 </template>

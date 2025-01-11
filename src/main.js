@@ -1,11 +1,12 @@
-import '../src/assets/scss/all.scss'
+import './assets/scss/all.scss'
+
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
-import axios from 'axios';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import axios from 'axios'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 const app = createApp(App)
 
