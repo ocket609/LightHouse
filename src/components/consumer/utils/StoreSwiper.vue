@@ -23,17 +23,17 @@ const breakpoints = {
 const storeData = ref([
   {
     title: '燈塔模型',
-    imageSrc: 'src/assets/lighthouse_img/Lighthouse product.jpg',
+    imageSrc: '/LightHouse/lighthouse_img/Lighthouse product.jpg',
     alt: '燈塔模型'
   },
   {
     title: '燈塔模型',
-    imageSrc: 'src/assets/lighthouse_img/lighthouse product02.jpg',
+    imageSrc: '/LightHouse/lighthouse_img/lighthouse product02.jpg',
     alt: '燈塔模型'
   },
   {
     title: '燈塔模型',
-    imageSrc: 'src/assets/lighthouse_img/north-1.png',
+    imageSrc: '/LightHouse/lighthouse_img/north-1.png',
     alt: '燈塔模型'
   }
 ])
