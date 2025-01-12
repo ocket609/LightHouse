@@ -114,12 +114,19 @@ const filteredLighthouses = computed(() => {
           >
             <h4 class="pb-5 mb-0 fs-md-4 fs-6">{{ lighthouse.title }}</h4>
             <p class="mb-2 mb-md-0 fs-9 fs-md-6">{{ lighthouse.subtitle }}</p>
-            <a
+            <!-- <a
               :href="lighthouse.link"
               class="btn btn-primary position-absolute end-0 text-white bottom-0 w-100 rounded-0 d-md-none fs-9 fs-md-6 p-3"
               style="z-index: 999"
               >MORE</a
-            >
+            > -->
+            <RouterLink
+            :to="{ name: 'singleLocation', params: { singleLocationId: lighthouse.title } }"
+            class="btn btn-primary position-absolute end-0 text-white bottom-0 w-100 rounded-0 d-md-none fs-9 fs-md-6 p-3"
+            style="z-index: 999"
+          >
+          MORE
+          </RouterLink>
           </div>
           <img :src="lighthouse.imageSrc" class="card-img-top" :alt="lighthouse.alt" />
           <!-- <a
