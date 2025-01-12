@@ -8,7 +8,7 @@
 </template>
 <style scoped>
 .footer-bg-lighthouse {
-  background-image: url('./public/location-ad-2.jpg');
+  background-image: url('/LightHouse/location-ad-2.jpg');
   background-repeat: no-repeat;
   background-position: center 45%;
   background-size: cover;
