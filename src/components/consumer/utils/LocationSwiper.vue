@@ -27,21 +27,21 @@ const lighthouses = ref([
       areaData:[{
       title: '新北市富貴角燈塔',
       subtitle: 'New Taipei City Fuguijiao Lighthouse',
-      imageSrc: './public/location/pic-north-lighthouse-3.jpg',
+      imageSrc: '/location/pic-north-lighthouse-3.jpg',
       alt: '新北市富貴角燈塔',
       link:'#'
     },
     {
       title: '桃園市白沙岬燈陶塔',
       subtitle: 'Taoyuan City Baishajia Lighthouse',
-      imageSrc: './public/location/pic-north-lighthouse-4.jpg',
+      imageSrc: '/location/pic-north-lighthouse-4.jpg',
       alt: '桃園市白沙岬燈陶塔',
       link:'#'
     },
     {
       title: '新北市三貂角燈塔',
       subtitle: 'Sandiao Cape Lighthouse',
-      imageSrc: './public/location/pic-north-lighthouse-2.jpg',
+      imageSrc: '/location/pic-north-lighthouse-2.jpg',
       alt: '新北市三貂角燈塔',
       link:'#'
     }]
@@ -51,21 +51,21 @@ const lighthouses = ref([
       areaData:[{
       title: '台南市國聖港燈塔',
       subtitle: 'Guosheng Lighthouse',
-      imageSrc: './public/location/pic-sorth-lighthouse-1.jpg',
+      imageSrc: '/location/pic-sorth-lighthouse-1.jpg',
       alt: '台南市國聖港燈塔',
       link:'#'
     },
     {
       title: '高雄燈塔（旗后燈塔）',
       subtitle: 'Kaohsiung Lighthouse',
-      imageSrc: './public/location/pic-sorth-lighthouse-2.jpg',
+      imageSrc: '/location/pic-sorth-lighthouse-2.jpg',
       alt: '高雄燈塔（旗后燈塔）',
       link:'#'
     },
     {
       title: '屏東鵝鑾鼻燈塔',
       subtitle: 'Eluanbi Cape Lighthouse',
-      imageSrc: './public/location/pic-sorth-lighthouse-3.jpg',
+      imageSrc: '/location/pic-sorth-lighthouse-3.jpg',
       alt: '屏東鵝鑾鼻燈塔',
       link:'#'
     }]
@@ -75,7 +75,7 @@ const lighthouses = ref([
       areaData:[{
       title: '台東縣綠島燈塔',
       subtitle: 'Green Island Lighthouse',
-      imageSrc: './public/location/pic-east-lighthouse-1.jpg',
+      imageSrc: '/location/pic-east-lighthouse-1.jpg',
       alt: '台東縣綠島燈塔',
       link:'#'
       },
@@ -86,7 +86,7 @@ const lighthouses = ref([
       areaData:[{
       title: '彰化縣芳苑燈塔',
       subtitle: 'Fangyuan Lighthouse',
-      imageSrc: './public/location/pic-wast-lighthouse-1.jpg',
+      imageSrc: '/location/pic-wast-lighthouse-1.jpg',
       alt: '彰化縣芳苑燈塔',
       link:'#'
       },
