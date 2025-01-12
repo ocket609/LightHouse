@@ -2,7 +2,7 @@
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import 'swiper/css/navigation'
 
 // Import required modules
@@ -23,17 +23,17 @@ const breakpoints = {
 const storeData = ref([
   {
     title: '燈塔模型',
-    imageSrc: './public/pic-north-lighthouse-3.jpg',
+    imageSrc: 'src/assets/lighthouse_img/Lighthouse product.jpg',
     alt: '燈塔模型'
   },
   {
     title: '燈塔模型',
-    imageSrc: './public/pic-north-lighthouse-4.jpg',
+    imageSrc: 'src/assets/lighthouse_img/lighthouse product02.jpg',
     alt: '燈塔模型'
   },
   {
     title: '燈塔模型',
-    imageSrc: './public/pic-north-lighthouse-2.jpg',
+    imageSrc: 'src/assets/lighthouse_img/north-1.png',
     alt: '燈塔模型'
   }
 ])
