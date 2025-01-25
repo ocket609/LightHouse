@@ -11,17 +11,17 @@
           </span>
         </a>-->
         <!---->
-        <nav class="navbar navbar-black bg-black d-xl-none py-0">
+        <nav class="navbar navbar-black bg-black d-lg-none py-0">
           <div class="container-fluid justify-content-center px-0">
             <button
               class="navbar-toggler material-icon border-0 d-flex align-items-center"
               type="button"
-              @click="toggleMenu"
               data-bs-toggle="collapse"
               data-bs-target="#navbarToggleExternalContent"
               aria-controls="navbarToggleExternalContent"
               aria-expanded="false"
               aria-label="Toggle navigation"
+              @click="toggleMenu"
             >
               <!-- 當 isMenuOpen 為 true 時顯示 close -->
               <span
@@ -37,7 +37,7 @@
             </button>
           </div>
         </nav>
-        <div class="collapse" id="navbarToggleExternalContent">
+        <div class="collapse" id="navbarToggleExternalContent" ref="menu">
           <ul class="header-menu-link my-0 px-0">
             <li class="mt-4">
               <RouterLink
@@ -49,28 +49,22 @@
             <li>
               <RouterLink
                 class="header-navbar-link text-success link-primary fs-8 fs-sm-6"
-                to="/about"
+                to="/consumer/location"
                 >燈塔資訊</RouterLink
               >
             </li>
             <li>
-              <RouterLink
-                class="header-navbar-link text-success link-primary fs-8 fs-sm-6"
-                to="/about"
+              <RouterLink class="header-navbar-link text-success link-primary fs-8 fs-sm-6" to="/"
                 >心靈雞湯</RouterLink
               >
             </li>
             <li>
-              <RouterLink
-                class="header-navbar-link text-success link-primary fs-8 fs-sm-6"
-                to="/about"
+              <RouterLink class="header-navbar-link text-success link-primary fs-8 fs-sm-6" to="/"
                 >週邊小物</RouterLink
               >
             </li>
             <li class="mb-4">
-              <RouterLink
-                class="header-navbar-link text-success link-primary fs-8 fs-sm-6"
-                to="/about"
+              <RouterLink class="header-navbar-link text-success link-primary fs-8 fs-sm-6" to="/"
                 >查詢訂單</RouterLink
               >
             </li>
@@ -79,16 +73,18 @@
         <!---->
       </div>
       <a href="#" class="header-logo">
-        <img class="img-logo" src="/src/assets/lighthouse_img/Lighthouse Logo.svg" alt="LOGO" />
+        <img class="img-logo" src="/public/lighthouse_img/Lighthouse Logo.svg" alt="LOGO" />
       </a>
     </div>
     <div class="header-nav d-flex justify-content-between align-items-center px-sm-6">
-      <ul class="header-navbar my-0 px-0 d-none d-xl-flex">
+      <ul class="header-navbar my-0 px-0 d-none d-lg-flex">
         <li class="text-success">
-          <RouterLink class="header-navbar-link text-success link-primary" to="/">首頁</RouterLink>
+          <RouterLink class="header-navbar-link text-success link-primary" to="/consumer"
+            >首頁</RouterLink
+          >
         </li>
         <li>
-          <RouterLink class="header-navbar-link text-success link-primary" to="/about"
+          <RouterLink class="header-navbar-link text-success link-primary" to="/consumer/location"
             >燈塔資訊</RouterLink
           >
         </li>
@@ -98,7 +94,7 @@
           >
         </li>
         <li>
-          <RouterLink class="header-navbar-link text-success link-primary" to="/about"
+          <RouterLink class="header-navbar-link text-success link-primary" to="/"
             >週邊小物</RouterLink
           >
         </li>
@@ -138,6 +134,7 @@ import { ref } from 'vue'
 const isMenuOpen = ref(false)
 
 // 定義切換函數
+// 切換菜單開啟/關閉狀態
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
