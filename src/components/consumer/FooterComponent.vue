@@ -65,7 +65,7 @@
   border-radius: 16px;
 }
 .footer-bg-lighthouse {
-  background-image: url('@/assets/lighthouse_img/footer-img2.jfif');
+  background-image: url('/public/lighthouse_img/footer-img2.jfif');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
