@@ -19,7 +19,7 @@
                   忍受寂寞扛起整個夜晚， 深夜裡的曙光<br />
                   是燈塔人的驕傲
                 </p>
-                <p class="text-center text-primary fw-bold pt-6">MORE</p>
+                <RouterLink class="text-center text-primary fw-bold pt-6">MORE</RouterLink>
               </div>
             </div>
           </div>
@@ -36,7 +36,7 @@
                   海崖孤燈閃爍<br />
                   基隆的燈塔們是種想念
                 </p>
-                <p class="text-center text-primary fw-bold pt-6">MORE</p>
+                <RouterLink class="text-center text-primary fw-bold pt-6">MORE</RouterLink>
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@
                   豎立於茫茫大海之中<br />
                   是歸來人的指引
                 </p>
-                <p class="text-center text-primary fw-bold pt-6">MORE</p>
+                <RouterLink class="text-center text-primary fw-bold pt-6">MORE</RouterLink>
               </div>
             </div>
           </div>

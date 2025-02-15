@@ -15,6 +15,20 @@ const clickFilterValue = (value) => {
 const toggleSearch = () => {
   isSearchVisible.value = !isSearchVisible.value;
 };
+const menuItems = [
+  { label: "最新資訊", action: "filterLighthouses", param: "所有區域" },
+  { label: "由北至南", action: "sortLighthouses", param: "由北至南" },
+  { label: "由南至北", action: "sortLighthouses", param: "由南至北" }
+];
+
+const activeIndex = ref(0); 
+
+const setActive = (index, action, param) => {  
+  activeIndex.value = index;
+  if (typeof lighthouseStore[action] === "function") {
+    lighthouseStore[action](param);
+  }
+};
 </script>
 
 <template>
@@ -64,7 +78,11 @@ const toggleSearch = () => {
               style="top: 50px;z-index: 999;">
                 <template v-if="searchText && lighthouseStore.lighthouses.length > 0">
                   <li v-for="item in lighthouseStore.lighthouses.slice(0, 3)" :key="item + 123">
-                    <a href="#">{{ item.title }}</a>
+                    <RouterLink
+                      :to="{ name: 'singleLocation', params: { singleLocationId: item.title } }"
+                    >
+                    {{ item.title }}
+                    </RouterLink>
                   </li>
                 </template>
                 <li v-if="lighthouseStore.lighthouses.length === 0">關鍵字：希望、溫暖</li>
@@ -78,23 +96,16 @@ const toggleSearch = () => {
             <i class="bi bi-sort-down"></i>
           </button>
           <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
-            <li class="text-center">
-              <button type="button" class="btn bg-transparent btn-search-sort"
-              @click="lighthouseStore.filterLighthouses('所有區域')">
-              最新資訊
-            </button>
-            </li>
-            <li class="text-center">
-              <button type="button" class="btn bg-transparent btn-search-sort"
-              @click="lighthouseStore.sortLighthouses('由北至南')">
-              由北至南
-            </button>
-            </li>
-            <li class="text-center">
-              <button type="button" class="btn bg-transparent btn-search-sort"
-              @click="lighthouseStore.sortLighthouses('由南至北')">
-              由南至北
-            </button>
+            <li class="text-center link-search-sort" v-for="(item, index) in menuItems" :key="index"
+            :class="{ 'active': activeIndex === index }">
+              <button
+                type="button"
+                class="btn bg-transparent btn-search-sort border-0"
+                :class="{ 'active': activeIndex === index }"
+                @click="setActive(index, item.action, item.param)"
+              >
+                {{ item.label }}
+              </button>
             </li>
           </ul>
         </div>
@@ -104,13 +115,13 @@ const toggleSearch = () => {
 </template>
 <style>
 .btn-search-sort {
-  --bs-btn-color: #ccc;
+  color: #ccc;
 }
 .btn-search-sort:hover {
   color:  rgb(255, 125, 51) !important; 
 }
 .btn-search-sort:active {
-  border: 0px solid transparent;
+  color: #eb905d !important;
 }
 .search-icon {
   color: #ccc; 
@@ -158,5 +169,10 @@ const toggleSearch = () => {
 
 .dropdown-menu-bg {
   --bs-dropdown-bg: #343a40;
+}
+
+.link-search-sort.active {
+  background-color: #d9d9d9 !important;
+  color: #eb905d !important;
 }
 </style>
