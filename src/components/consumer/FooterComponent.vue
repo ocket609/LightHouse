@@ -59,7 +59,6 @@
         <li class="mt-3 mt-lg-0 mb-6 mb-xl-0">
           <a href="/">
             <img src="../../../public/lighthouse_img/Lighthouse Logo.svg" alt="Lighthouse" />
-            <img src="../../../public/lighthouse_img/Lighthouse Logo.svg" alt="Lighthouse" />
           </a>
         </li>
         <li class="mb-6 mb-xl-0">@2023 資料、圖片、文章來源皆來自網路，僅用來做為學習用途。</li>
@@ -79,10 +78,8 @@
   line-height: 1.1;
 }
 .icon-size {
-.icon-size {
   font-size: 36px;
 }
-.icon-size-2 {
 .icon-size-2 {
   font-size: 32px;
 }
@@ -91,19 +88,14 @@
   font-size: 13px;
 }
 @media (min-width: 768px) {
-@media (min-width: 768px) {
   .form-control {
-    font-size: 18px;
-  }
     font-size: 18px;
   }
 }
 .btn-lh-black[data-v-f048872f] {
   border-radius: 16px;
-  border-radius: 16px;
 }
 .footer-bg-lighthouse {
-  background-image: url('/public/lighthouse_img/footer-img2.jfif');
   background-image: url('/public/lighthouse_img/footer-img2.jfif');
   background-repeat: no-repeat;
   background-position: center;
@@ -138,27 +130,19 @@
   margin-bottom: 60px;
 }
 @media (min-width: 768px) {
-@media (min-width: 768px) {
   .footer-content {
     margin-bottom: 120px;
-  }
   }
 }
 .input-group {
   height: 50px;
-  height: 50px;
 }
-@media (min-width: 768px) {
 @media (min-width: 768px) {
   .input-group {
     height: 90px;
   }
-  }
 }
 .btn-lh-black {
-  width: 100px;
-  background-color: var(--bs-black);
-  color: var(--bs-white);
   width: 100px;
   background-color: var(--bs-black);
   color: var(--bs-white);
@@ -166,7 +150,6 @@
 .btn-lh-black:hover {
   color: var(--bs-primary);
 }
-.footer-icon a {
 .footer-icon a {
   color: var(--bs-white);
 }
@@ -177,17 +160,14 @@
   padding: 0 12px;
 }
 @media (min-width: 768px) {
-@media (min-width: 768px) {
   .footer-end {
     padding: 0;
   }
 }
 .footer-end a {
-.footer-end a {
   color: var(--bs-white);
   text-decoration: none;
 }
-.footer-end a:hover {
 .footer-end a:hover {
   color: var(--bs-primary);
 }
