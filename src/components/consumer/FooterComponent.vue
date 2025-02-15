@@ -27,11 +27,38 @@
           </ul>
         </div>
       </div>
+      <div class="d-flex justify-content-center">
+        <div class="footer-content">
+          <div class="mb-10">
+            <p class="mb-6 footer-input-title fs-7 fs-sm-4">訂閱LightHouse電子報</p>
+            <p class="mb-3 footer-input-content fs-9 fs-sm-6">瞭解更多最新燈塔資訊!</p>
+          </div>
+          <div class="input-group mb-10 px-3 px-lg-0">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="請輸入Email 訂閱"
+              aria-label="請輸入Email 訂閱"
+              aria-describedby="button-addon2"
+            />
+            <button class="btn btn-lh-black" type="button" id="button-addon2">訂閱</button>
+          </div>
+          <ul class="footer-icon list-unstyled d-flex justify-content-center mb-0">
+            <li class="mx-2 d-flex align-items-center">
+              <a href="#"><i class="fa-brands fa-square-facebook icon-size"></i></a>
+            </li>
+            <li class="mx-2">
+              <a href="#"><i class="bi bi-instagram icon-size-2"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
       <ul
         class="footer-end list-unstyled d-flex flex-column flex-xl-row justify-content-center justify-content-xl-between align-items-center mx-2 mx-xxl-0 mb-0"
       >
         <li class="mt-3 mt-lg-0 mb-6 mb-xl-0">
           <a href="/">
+            <img src="../../../public/lighthouse_img/Lighthouse Logo.svg" alt="Lighthouse" />
             <img src="../../../public/lighthouse_img/Lighthouse Logo.svg" alt="Lighthouse" />
           </a>
         </li>
@@ -52,8 +79,10 @@
   line-height: 1.1;
 }
 .icon-size {
+.icon-size {
   font-size: 36px;
 }
+.icon-size-2 {
 .icon-size-2 {
   font-size: 32px;
 }
@@ -62,14 +91,19 @@
   font-size: 13px;
 }
 @media (min-width: 768px) {
+@media (min-width: 768px) {
   .form-control {
+    font-size: 18px;
+  }
     font-size: 18px;
   }
 }
 .btn-lh-black[data-v-f048872f] {
   border-radius: 16px;
+  border-radius: 16px;
 }
 .footer-bg-lighthouse {
+  background-image: url('/public/lighthouse_img/footer-img2.jfif');
   background-image: url('/public/lighthouse_img/footer-img2.jfif');
   background-repeat: no-repeat;
   background-position: center;
@@ -99,21 +133,32 @@
   width: 750px;
   max-width: 100%;
   margin-bottom: 60px;
+  width: 750px;
+  max-width: 100%;
+  margin-bottom: 60px;
 }
+@media (min-width: 768px) {
 @media (min-width: 768px) {
   .footer-content {
     margin-bottom: 120px;
   }
+  }
 }
 .input-group {
   height: 50px;
+  height: 50px;
 }
+@media (min-width: 768px) {
 @media (min-width: 768px) {
   .input-group {
     height: 90px;
   }
+  }
 }
 .btn-lh-black {
+  width: 100px;
+  background-color: var(--bs-black);
+  color: var(--bs-white);
   width: 100px;
   background-color: var(--bs-black);
   color: var(--bs-white);
@@ -121,6 +166,7 @@
 .btn-lh-black:hover {
   color: var(--bs-primary);
 }
+.footer-icon a {
 .footer-icon a {
   color: var(--bs-white);
 }
@@ -131,14 +177,17 @@
   padding: 0 12px;
 }
 @media (min-width: 768px) {
+@media (min-width: 768px) {
   .footer-end {
     padding: 0;
   }
 }
 .footer-end a {
+.footer-end a {
   color: var(--bs-white);
   text-decoration: none;
 }
+.footer-end a:hover {
 .footer-end a:hover {
   color: var(--bs-primary);
 }
