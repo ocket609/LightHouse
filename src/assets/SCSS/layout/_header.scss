@@ -20,22 +20,23 @@ header {
     top: 100%; // 將 header-menu-link 放在 header 的正下方
     left: 0; // 對齊左邊
     right: 0; // 撐滿整個寬度
-    backdrop-filter: blur(5px); // 毛玻璃特效
+    backdrop-filter: blur(10px); // 毛玻璃特效
     display: flex;
     flex-direction: column;
     align-items: center;
     row-gap: 40px;
     padding: 85px 0 145px;
+    z-index: 999;
   }
   &-logo {
     padding: 4px 8px;
   }
   &-navbar {
     padding: 8px 0 17px;
-    column-gap: 24px;
+    column-gap: 12px;
   }
   &-navbar-link {
-    padding: 8px 16px;
+    padding: 8px 12px; // 8px 16px
     &:hover {
       font-weight: $font-weight-bold;
       color: $primary;
@@ -49,13 +50,13 @@ header {
 
 @media (min-width: 375px) {
   header {
-    padding: 12px 40px;
+    padding: 12px 24px;
   }
 }
 @media (min-width: 576px) {
   header {
     .img-logo {
-      width: 288px;
+      width: 200px;
     }
   }
   .header {
@@ -68,6 +69,40 @@ header {
     }
   }
 }
+@media (min-width: 992px) {
+  header {
+    .img-logo {
+      width: 288px;
+    }
+  }
+  .header {
+    &-logo {
+      padding: 8px;
+    }
+    &-navbar {
+      column-gap: 14px;
+    }
+    &-nav-icon {
+      margin-left: 20px;
+    }
+    &-navbar-link {
+      padding: 8px;
+    }
+  }
+}
+@media (min-width: 1050px) {
+  .header {
+    &-navbar {
+      column-gap: 20px;
+    }
+    &-nav-icon {
+      margin-left: 24px;
+    }
+    &-navbar-link {
+      padding: 8px 12px;
+    }
+  }
+}
 @media (min-width: 1296px) {
   .header {
     &-navbar {
@@ -75,6 +110,9 @@ header {
     }
     &-nav-icon {
       margin-left: 60px;
+    }
+    &-navbar-link {
+      padding: 8px 16px;
     }
   }
 }
