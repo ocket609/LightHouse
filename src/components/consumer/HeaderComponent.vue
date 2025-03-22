@@ -16,13 +16,12 @@
             <button
               class="navbar-toggler material-icon border-0 d-flex align-items-center"
               type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarToggleExternalContent"
               aria-controls="navbarToggleExternalContent"
               aria-expanded="false"
               aria-label="Toggle navigation"
               @click="toggleMenu"
             >
+              <!--data-bs-toggle="collapse"、data-bs-target="#navbarToggleExternalContent"、-->
               <!-- 當 isMenuOpen 為 true 時顯示 close -->
               <span
                 class="material-symbols-outlined text-white link-primary align-middle"
@@ -37,14 +36,20 @@
             </button>
           </div>
         </nav>
-        <div class="collapse" id="navbarToggleExternalContent" ref="menu">
-          <ul class="header-menu-link my-0 px-0">
+        <!-- 下拉選單 -->
+        <div
+          class="collapse"
+          id="navbarToggleExternalContent"
+          ref="headerCollapse"
+          @click.self="closeMenu"
+        >
+          <ul class="header-menu-link my-0 px-0" @click="closeMenu">
             <li class="mt-4">
               <RouterLink
                 class="header-navbar-link text-success link-primary fs-8 fs-sm-6"
-                to="/consumer"
+                to="consumer"
                 >首頁</RouterLink
-              >
+              ><!--@click="closeMenu"-->
             </li>
             <li>
               <RouterLink
@@ -79,7 +84,7 @@
     <div class="header-nav d-flex justify-content-between align-items-center px-sm-6">
       <ul class="header-navbar my-0 px-0 d-none d-lg-flex">
         <li class="text-success">
-          <RouterLink class="header-navbar-link text-success link-primary" to="/consumer"
+          <RouterLink class="header-navbar-link text-success link-primary" to="consumer"
             >首頁</RouterLink
           >
         </li>
@@ -127,16 +132,153 @@
 </template>
 <script setup>
 import { RouterLink } from 'vue-router'
-import { ref } from 'vue'
+import { useRoute } from 'vue-router' // +
+import { ref, watch, onMounted, onUnmounted, nextTick } from 'vue' // +watch, onMounted  //+ onUnmounted, nextTick
+import Collapse from 'bootstrap/js/dist/collapse' // +
 
 // menu 按鈕切換
 // 定義布林變量 isMenuOpen
 const isMenuOpen = ref(false)
 
-// 定義切換函數
-// 切換菜單開啟/關閉狀態
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value
+// +
+const headerCollapse = ref(null)
+const route = useRoute()
+let collapseInstance = null
+
+// ++
+// 初始化 Bootstrap Collapse
+onMounted(() => {
+  if (headerCollapse.value) {
+    collapseInstance = new Collapse(headerCollapse.value, { toggle: false })
+
+    // 監聽 Bootstrap 事件，確保 isMenuOpen 正確變更
+    headerCollapse.value.addEventListener('shown.bs.collapse', () => {
+      isMenuOpen.value = true
+    })
+    headerCollapse.value.addEventListener('hidden.bs.collapse', () => {
+      isMenuOpen.value = false
+    })
+  }
+  // 1
+  // if (headerCollapse.value) {
+  //   collapseInstance = new Collapse(headerCollapse.value, { toggle: false })
+  // }
+  // 監聽點擊外部事件
+  document.addEventListener('click', handleClickOutside)
+})
+// 移除監聽事件
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
+
+// 點擊 menu 按鈕切換選單狀態
+// 1
+// const toggleMenu = () => {
+//   if (collapseInstance) {
+//     if (isMenuOpen.value) {
+//       collapseInstance.hide()
+//     } else {
+//       collapseInstance.show()
+//     }
+//   }
+//   isMenuOpen.value = !isMenuOpen.value
+// }
+const toggleMenu = async () => {
+  if (collapseInstance) {
+    if (isMenuOpen.value) {
+      collapseInstance.hide()
+    } else {
+      collapseInstance.show()
+    }
+  }
+  // 2
+  // isMenuOpen.value = !isMenuOpen.value
+
+  // 確保 Vue 在 UI 上即時更新 icon
+  await nextTick()
 }
+
+// 點擊選單項目、close 按鈕、頁面變更時關閉選單
+const closeMenu = () => {
+  if (collapseInstance) {
+    collapseInstance.hide()
+  }
+  // 2
+  // isMenuOpen.value = false
+}
+// 點擊空白處關閉選單
+const handleClickOutside = (event) => {
+  // 1
+  // if (
+  //   isMenuOpen.value &&
+  //   !event.target.closest('.navbar') &&
+  //   !event.target.closest('#navbarToggleExternalContent')
+  // ) {
+  //   closeMenu()
+  // }
+  // 2
+  // if (
+  //   isMenuOpen.value &&
+  //   headerCollapse.value &&
+  //   !headerCollapse.value.contains(event.target) && // 確保點擊的地方不是選單內部
+  //   !event.target.closest('.navbar-toggler') // 確保點擊的地方不是 menu 按鈕
+  // ) {
+  //   closeMenu()
+  // }
+  if (
+    isMenuOpen.value &&
+    headerCollapse.value &&
+    !headerCollapse.value.contains(event.target) && // 確保點擊的地方不是選單內部
+    !event.target.closest('.navbar') // 確保點擊的地方不是 navbar
+  ) {
+    closeMenu()
+  }
+}
+// 監聽路由變化，切換頁面時關閉選單
+watch(route, () => {
+  closeMenu()
+})
+
+// // 定義切換函數
+// // 切換菜單開啟/關閉狀態
+// const toggleMenu = () => {
+//   isMenuOpen.value = !isMenuOpen.value
+//   console.log(isMenuOpen.value)
+// }
+
+// +
+// 監聽
+// watch(route, () => {
+//   if (collapseInstance) {
+//     collapseInstance.hide()
+//     isMenuOpen.value = false
+//   }
+// })
+// +
+// onMounted(() => {
+//   if (headerCollapse.value) {
+//     collapseInstance = new Collapse(headerCollapse.value, { toggle: false })
+//   }
+// })
+// +
+// 切換選單狀態
+// const toggleMenu = () => {
+//   if (collapseInstance) {
+//     if (isMenuOpen.value) {
+//       collapseInstance.hide()
+//     } else {
+//       collapseInstance.show()
+//     }
+//   }
+//   isMenuOpen.value = !isMenuOpen.value
+//   console.log(isMenuOpen.value)
+// }
+// +
+// const closeMenu = () => {
+//   if (collapseInstance) {
+//     collapseInstance.hide()
+//   }
+//   isMenuOpen.value = false
+// }
 </script>
 <style></style>

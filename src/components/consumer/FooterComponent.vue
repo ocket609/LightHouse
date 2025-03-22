@@ -27,32 +27,6 @@
           </ul>
         </div>
       </div>
-      <div class="d-flex justify-content-center">
-        <div class="footer-content">
-          <div class="mb-10">
-            <p class="mb-6 footer-input-title fs-7 fs-sm-4">訂閱LightHouse電子報</p>
-            <p class="mb-3 footer-input-content fs-9 fs-sm-6">瞭解更多最新燈塔資訊!</p>
-          </div>
-          <div class="input-group mb-10 px-3 px-lg-0">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="請輸入Email 訂閱"
-              aria-label="請輸入Email 訂閱"
-              aria-describedby="button-addon2"
-            />
-            <button class="btn btn-lh-black" type="button" id="button-addon2">訂閱</button>
-          </div>
-          <ul class="footer-icon list-unstyled d-flex justify-content-center mb-0">
-            <li class="mx-2 d-flex align-items-center">
-              <a href="#"><i class="fa-brands fa-square-facebook icon-size"></i></a>
-            </li>
-            <li class="mx-2">
-              <a href="#"><i class="bi bi-instagram icon-size-2"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
       <ul
         class="footer-end list-unstyled d-flex flex-column flex-xl-row justify-content-center justify-content-xl-between align-items-center mx-2 mx-xxl-0 mb-0"
       >
