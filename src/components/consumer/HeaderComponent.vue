@@ -38,7 +38,7 @@
         </nav>
         <!-- 下拉選單 -->
         <div
-          class="collapse"
+          class="collapse d-lg-none"
           id="navbarToggleExternalContent"
           ref="headerCollapse"
           @click.self="closeMenu"
